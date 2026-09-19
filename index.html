@@ -96,9 +96,11 @@
   .top-inner{
     max-width:920px; margin:0 auto; padding:16px 28px;
     display:flex; justify-content:space-between; align-items:center; gap:16px;
+    position:relative;
   }
   .brand{ font-family:'Fraunces', serif; font-size:1.05rem; }
   .brand .dot{ color:var(--indigo); }
+  .top-right{ display:flex; align-items:center; gap:14px; }
   nav.links{ display:flex; align-items:center; gap:22px; font-size:0.9rem; color:var(--ink-soft); }
   nav.links a{ text-decoration:none; position:relative; padding-bottom:2px; }
   nav.links a::after{
@@ -107,7 +109,6 @@
   }
   nav.links a:hover{ color:var(--ink); }
   nav.links a:hover::after{ width:100%; }
-  @media (max-width:640px){ nav.links a{ display:none; } }
 
   .theme-toggle{
     width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
@@ -117,6 +118,27 @@
   }
   .theme-toggle:hover{ border-color:var(--indigo); transform:rotate(14deg); }
   .theme-toggle svg{ width:16px; height:16px; }
+
+  .menu-toggle{
+    display:none; width:36px; height:36px; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--ink); cursor:pointer; align-items:center; justify-content:center;
+    flex-shrink:0; transition:border-color .2s;
+  }
+  .menu-toggle:hover{ border-color:var(--indigo); }
+  .menu-toggle svg{ width:18px; height:18px; }
+
+  @media (max-width:640px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      flex-direction:column; align-items:flex-start; gap:16px;
+      padding:20px 28px 24px; display:none;
+      box-shadow:var(--shadow);
+    }
+    nav.links.open{ display:flex; }
+    nav.links a{ font-size:1rem; width:100%; }
+    .menu-toggle{ display:flex; }
+  }
 
   /* ---------- reveal-on-scroll ---------- */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
@@ -260,16 +282,21 @@
 <header class="top">
   <div class="top-inner">
     <div class="brand">Menuka<span class="dot">.</span>Mukhiya</div>
-    <nav class="links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="qa-notes.html">QA Notes</a>
-      <a href="#contact">Contact</a>
+    <div class="top-right">
+      <nav class="links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="qa-notes.html">QA Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
       </button>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" title="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -280,7 +307,7 @@
     <h1>BSc CSIT graduate,<br><span class="accent">building on the front end.</span></h1>
     <p class="tagline">I'm Menuka Mukhiya — a frontend-leaning developer who just finished a Bachelor's in CSIT at Shreeyantra College. Strong in HTML and CSS, growing into React, and currently learning Python, Java, and software QA.</p>
     <div class="contact-row">
-<a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
+     <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
      <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
   GitHub
 </a>
@@ -316,21 +343,21 @@
           <h3>Personal Portfolio Site</h3>
           <div class="stack"><span>HTML</span><span>CSS</span><span>React</span></div>
         </div>
-        <p>This site — hand-written HTML/CSS with a small React component powering the interactive skills panel. Replace this with a link once it's live on your own domain.</p>
+        <p>This site — hand-written HTML/CSS with a small React component powering the interactive skills panel.</p>
       </div>
       <div class="proj">
         <div class="proj-top">
           <h3>Task Tracker UI</h3>
           <div class="stack"><span>React</span><span>CSS</span></div>
         </div>
-        <p>A small React app for adding, completing, and filtering daily tasks — built to practice component state and conditional rendering. Swap in your real project name, stack, and a link.</p>
+        <p>A small React app for adding, completing, and filtering daily tasks — built to practice component state and conditional rendering. </p>
       </div>
       <div class="proj">
         <div class="proj-top">
           <h3>College Event Landing Page</h3>
           <div class="stack"><span>HTML</span><span>CSS</span></div>
         </div>
-        <p>A responsive landing page built for a college event, focused on clean layout and mobile responsiveness without any framework. Replace with your own coursework or freelance project.</p>
+        <p>A responsive landing page built for a college event, focused on clean layout and mobile responsiveness without any framework.</p>
       </div>
       <div class="proj">
         <div class="proj-top">
@@ -349,10 +376,13 @@
     <h2>Open to junior roles and internships.</h2>
     <p class="sub">Frontend development, React projects, or QA/testing internships — happy to talk about any of it.</p>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
+       <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
      <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
   GitHub
 </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.58v-2.02c-3.2.7-3.9-1.37-3.9-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.71.08-.71 1.18.08 1.8 1.2 1.8 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.4-1.28.73-1.58-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.77.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17v3.22c0 .33.2.7.8.58A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>GitHub
+      </a>
       <a href="#">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Resume
       </a>
@@ -430,6 +460,24 @@
   }
 
   ReactDOM.createRoot(document.getElementById('skills-root')).render(e(SkillsPanel));
+})();
+
+// mobile menu toggle
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  if(!toggle || !nav) return;
+  toggle.addEventListener('click', function(){
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+  document.addEventListener('click', function(ev){
+    if(!nav.contains(ev.target) && !toggle.contains(ev.target)){
+      nav.classList.remove('open');
+    }
+  });
 })();
 
 // theme toggle
