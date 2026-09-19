@@ -258,68 +258,70 @@
   footer h2{ font-size:1.9rem; max-width:16ch; }
   footer p.sub{ color:var(--ink-soft); margin-top:14px; max-width:44ch; }
   .footer-links{ margin-top:30px; display:flex; flex-wrap:wrap; gap:12px; }
-  .footer-links a{
+  .footer-links a, .footer-link-btn{
     text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
     display:inline-flex; align-items:center; gap:7px; background:var(--card);
     transition:border-color .2s, transform .2s, box-shadow .2s;
+    font-family:'IBM Plex Sans', sans-serif; color:var(--ink); cursor:pointer;
   }
-  .footer-links a:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
-  .footer-links svg{ width:14px; height:14px; }
+  .footer-links a:hover, .footer-link-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .footer-links svg, .footer-link-btn svg{ width:14px; height:14px; }
   .copyright{ margin-top:46px; font-size:0.78rem; color:var(--ink-soft); }
-  /* ---------- resume dropdown ---------- */
-.resume-dropdown{ position:relative; }
-.resume-dropdown-btn{
-  text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
-  display:inline-flex; align-items:center; gap:7px; background:var(--card); color:var(--ink);
-  transition:border-color .2s, transform .2s, box-shadow .2s; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
-}
-.resume-dropdown-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
-.resume-dropdown-btn svg{ width:14px; height:14px; }
-.resume-dropdown-btn .chevron{ width:11px; height:11px; transition:transform .2s; }
-.resume-dropdown.open .chevron{ transform:rotate(180deg); }
-.resume-dropdown-menu{
-  position:absolute; bottom:calc(100% + 8px); left:0; min-width:170px;
-  background:var(--card); border:1px solid var(--line); border-radius:10px;
-  box-shadow:var(--shadow-hover); padding:6px; display:none; z-index:30;
-}
-.resume-dropdown.open .resume-dropdown-menu{ display:block; }
-.resume-dropdown-menu a, .resume-dropdown-menu button{
-  display:flex; align-items:center; gap:9px; width:100%; text-align:left;
-  padding:9px 10px; border-radius:6px; border:none; background:none; cursor:pointer;
-  font-family:'IBM Plex Sans', sans-serif; font-size:0.88rem; color:var(--ink); text-decoration:none;
-}
-.resume-dropdown-menu a:hover, .resume-dropdown-menu button:hover{ background:var(--indigo-soft); color:var(--indigo); }
-.resume-dropdown-menu svg{ width:15px; height:15px; flex-shrink:0; }
 
-/* ---------- resume preview modal ---------- */
-.resume-modal{
-  position:fixed; inset:0; z-index:100; display:none;
-  align-items:center; justify-content:center; padding:24px;
-}
-.resume-modal.open{ display:flex; }
-.resume-modal-backdrop{ position:absolute; inset:0; background:rgba(15,17,22,0.55); backdrop-filter:blur(3px); }
-.resume-modal-box{
-  position:relative; width:100%; max-width:820px; height:88vh;
-  background:var(--card); border:1px solid var(--line); border-radius:12px;
-  box-shadow:var(--shadow-hover); display:flex; flex-direction:column; overflow:hidden;
-}
-.resume-modal-head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 18px; border-bottom:1px solid var(--line); flex-shrink:0;
-}
-.resume-modal-title{ font-family:'Fraunces', serif; font-size:1rem; }
-.resume-modal-close{
-  width:32px; height:32px; border-radius:8px; border:1px solid var(--line);
-  background:var(--paper); color:var(--ink); display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:border-color .2s;
-}
-.resume-modal-close svg{ width:16px; height:16px; }
-.resume-modal-close:hover{ border-color:var(--indigo); color:var(--indigo); }
-.resume-modal-frame{ flex:1; width:100%; border:none; background:#fff; }
-@media (max-width:640px){
-  .resume-modal{ padding:0; }
-  .resume-modal-box{ max-width:100%; height:100vh; border-radius:0; }
-}
+  /* ---------- resume dropdown ---------- */
+  .resume-dropdown{ position:relative; }
+  .resume-dropdown-btn{
+    text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
+    display:inline-flex; align-items:center; gap:7px; background:var(--card); color:var(--ink);
+    transition:border-color .2s, transform .2s, box-shadow .2s; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
+  }
+  .resume-dropdown-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .resume-dropdown-btn svg{ width:14px; height:14px; }
+  .resume-dropdown-btn .chevron{ width:11px; height:11px; transition:transform .2s; }
+  .resume-dropdown.open .chevron{ transform:rotate(180deg); }
+  .resume-dropdown-menu{
+    position:absolute; bottom:calc(100% + 8px); left:0; min-width:170px;
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    box-shadow:var(--shadow-hover); padding:6px; display:none; z-index:30;
+  }
+  .resume-dropdown.open .resume-dropdown-menu{ display:block; }
+  .resume-dropdown-menu a, .resume-dropdown-menu button{
+    display:flex; align-items:center; gap:9px; width:100%; text-align:left;
+    padding:9px 10px; border-radius:6px; border:none; background:none; cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif; font-size:0.88rem; color:var(--ink); text-decoration:none;
+  }
+  .resume-dropdown-menu a:hover, .resume-dropdown-menu button:hover{ background:var(--indigo-soft); color:var(--indigo); }
+  .resume-dropdown-menu svg{ width:15px; height:15px; flex-shrink:0; }
+
+  /* ---------- resume preview modal ---------- */
+  .resume-modal{
+    position:fixed; inset:0; z-index:100; display:none;
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .resume-modal.open{ display:flex; }
+  .resume-modal-backdrop{ position:absolute; inset:0; background:rgba(15,17,22,0.55); backdrop-filter:blur(3px); }
+  .resume-modal-box{
+    position:relative; width:100%; max-width:820px; height:88vh;
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    box-shadow:var(--shadow-hover); display:flex; flex-direction:column; overflow:hidden;
+  }
+  .resume-modal-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 18px; border-bottom:1px solid var(--line); flex-shrink:0;
+  }
+  .resume-modal-title{ font-family:'Fraunces', serif; font-size:1rem; }
+  .resume-modal-close{
+    width:32px; height:32px; border-radius:8px; border:1px solid var(--line);
+    background:var(--paper); color:var(--ink); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:border-color .2s;
+  }
+  .resume-modal-close svg{ width:16px; height:16px; }
+  .resume-modal-close:hover{ border-color:var(--indigo); color:var(--indigo); }
+  .resume-modal-frame{ flex:1; width:100%; border:none; background:#fff; }
+  @media (max-width:640px){
+    .resume-modal{ padding:0; }
+    .resume-modal-box{ max-width:100%; height:100vh; border-radius:0; }
+  }
 
   :focus-visible{ outline:2px solid var(--indigo); outline-offset:2px; }
   @media (prefers-reduced-motion: reduce){
@@ -357,19 +359,27 @@
 <div class="wrap">
 
   <section class="hero">
-    <!-- <div class="prompt">whoami<span class="caret"></span></div> -->
+    <div class="prompt">whoami<span class="caret"></span></div>
     <h1>BSc CSIT graduate,<br><span class="accent">building on the front end.</span></h1>
     <p class="tagline">I'm Menuka Mukhiya — a frontend-leaning developer who just finished a Bachelor's in CSIT at Shreeyantra College. Strong in HTML and CSS, growing into React, and currently learning Python, Java, and software QA.</p>
     <div class="contact-row">
-     <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
-     <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
-  GitHub
-</a>
+      <!-- <a href="mailto:menuka.mukhiya@example.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        Email
+      </a> -->
+      <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg>
+        LinkedIn
+      </a>
+      <a href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.58v-2.02c-3.2.7-3.9-1.37-3.9-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.71.08-.71 1.18.08 1.8 1.2 1.8 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.4-1.28.73-1.58-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.77.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17v3.22c0 .33.2.7.8.58A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        GitHub
+      </a>
     </div>
   </section>
 
   <section id="about" class="reveal">
-    <div class="section-head"><h2>About</h2><span class="section-num mono"></span></div>
+    <div class="section-head"><h2>About</h2><span class="section-num mono">01</span></div>
     <div class="about-grid">
       <div>
         <p>I started with HTML and CSS and never really stopped — I like that the front end is where code becomes something people can actually see and use. Over my degree I moved from static pages into React, and I'm now picking up Python and Java alongside the fundamentals of QA, because I want to understand not just how to build software, but how to make sure it works.</p>
@@ -385,33 +395,33 @@
   </section>
 
   <section id="skills" class="reveal">
-    <div class="section-head"><h2>Skills</h2><span class="section-num mono"></span></div>
+    <div class="section-head"><h2>Skills</h2><span class="section-num mono">02</span></div>
     <div id="skills-root"></div>
   </section>
 
   <section id="projects" class="reveal">
-    <div class="section-head"><h2>Projects</h2><span class="section-num mono"></span></div>
+    <div class="section-head"><h2>Projects</h2><span class="section-num mono">03</span></div>
     <div class="projects">
       <div class="proj">
         <div class="proj-top">
           <h3>Personal Portfolio Site</h3>
           <div class="stack"><span>HTML</span><span>CSS</span><span>React</span></div>
         </div>
-        <p>This site — hand-written HTML/CSS with a small React component powering the interactive skills panel.</p>
+        <p>This site — hand-written HTML/CSS with a small React component powering the interactive skills panel. Replace this with a link once it's live on your own domain.</p>
       </div>
       <div class="proj">
         <div class="proj-top">
           <h3>Task Tracker UI</h3>
           <div class="stack"><span>React</span><span>CSS</span></div>
         </div>
-        <p>A small React app for adding, completing, and filtering daily tasks — built to practice component state and conditional rendering. </p>
+        <p>A small React app for adding, completing, and filtering daily tasks — built to practice component state and conditional rendering. Swap in your real project name, stack, and a link.</p>
       </div>
       <div class="proj">
         <div class="proj-top">
           <h3>College Event Landing Page</h3>
           <div class="stack"><span>HTML</span><span>CSS</span></div>
         </div>
-        <p>A responsive landing page built for a college event, focused on clean layout and mobile responsiveness without any framework.</p>
+        <p>A responsive landing page built for a college event, focused on clean layout and mobile responsiveness without any framework. Replace with your own coursework or freelance project.</p>
       </div>
       <div class="proj">
         <div class="proj-top">
@@ -430,30 +440,37 @@
     <h2>Open to junior roles and internships.</h2>
     <p class="sub">Frontend development, React projects, or QA/testing internships — happy to talk about any of it.</p>
     <div class="footer-links">
-       <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
-     <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
-  GitHub
-<div class="resume-dropdown" id="resumeDropdown">
-  <button class="resume-dropdown-btn" id="resumeDropdownBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-    Resume
-    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
-  </button>
-  <div class="resume-dropdown-menu">
-    <button id="resumePreviewOption">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
-      Preview
-    </button>
-    <a href="Menuka_Mukhiya_Resume.pdf" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-      Download
-    </a>
-  </div>
-</div>
+      <a href="mailto:menuka.mukhiya@example.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>Email
+      </a>
+      <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg>LinkedIn
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.58v-2.02c-3.2.7-3.9-1.37-3.9-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.71.08-.71 1.18.08 1.8 1.2 1.8 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.4-1.28.73-1.58-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.77.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17v3.22c0 .33.2.7.8.58A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>GitHub
+      </a>
+      <div class="resume-dropdown" id="resumeDropdown">
+        <button class="resume-dropdown-btn" id="resumeDropdownBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          Resume
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="resume-dropdown-menu">
+          <button id="resumePreviewOption">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
+            Preview
+          </button>
+          <a href="Menuka_Mukhiya_Resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+      </div>
     </div>
     <div class="copyright">Placeholder content — replace project links, resume, and socials with your own.</div>
   </div>
 </footer>
+
 <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume preview">
   <div class="resume-modal-backdrop" id="resumeModalBackdrop"></div>
   <div class="resume-modal-box">
@@ -466,6 +483,7 @@
     <iframe class="resume-modal-frame" id="resumeModalFrame" src="" title="Resume preview"></iframe>
   </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
@@ -535,6 +553,44 @@
   }
 
   ReactDOM.createRoot(document.getElementById('skills-root')).render(e(SkillsPanel));
+})();
+
+// resume dropdown + preview modal
+(function(){
+  var dropdown = document.getElementById('resumeDropdown');
+  var dropdownBtn = document.getElementById('resumeDropdownBtn');
+  var previewOption = document.getElementById('resumePreviewOption');
+  var modal = document.getElementById('resumeModal');
+  var closeBtn = document.getElementById('closeResumeModal');
+  var backdrop = document.getElementById('resumeModalBackdrop');
+  var frame = document.getElementById('resumeModalFrame');
+  var PDF_URL = 'Menuka_Mukhiya_Resume.pdf';
+  if(!dropdown) return;
+
+  dropdownBtn.addEventListener('click', function(ev){
+    ev.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', function(ev){
+    if(!dropdown.contains(ev.target)) dropdown.classList.remove('open');
+  });
+
+  function openModal(){
+    if(!frame.src){ frame.src = PDF_URL; }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    dropdown.classList.remove('open');
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  if(previewOption) previewOption.addEventListener('click', openModal);
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  if(backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape') closeModal();
+  });
 })();
 
 // mobile menu toggle
