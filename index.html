@@ -571,12 +571,12 @@
     if(!dropdown.contains(ev.target)) dropdown.classList.remove('open');
   });
 
-  function openModal(){
-    if(!frame.src){ frame.src = PDF_URL; }
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    dropdown.classList.remove('open');
-  }
+function openModal(){
+  frame.src = PDF_URL;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  dropdown.classList.remove('open');
+}
   function closeModal(){
     modal.classList.remove('open');
     document.body.style.overflow = '';
