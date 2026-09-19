@@ -59,14 +59,14 @@
     background:color-mix(in srgb, var(--paper) 88%, transparent);
     backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); z-index:20;
   }
-  .top-inner{ max-width:920px; margin:0 auto; padding:16px 28px; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  .top-inner{ max-width:920px; margin:0 auto; padding:16px 28px; display:flex; justify-content:space-between; align-items:center; gap:16px; position:relative; }
   .brand{ font-family:'Fraunces', serif; font-size:1.02rem; display:flex; align-items:center; gap:8px; text-decoration:none; }
   .brand .dot{ color:var(--indigo); }
   .back-arrow{ font-family:'IBM Plex Mono', monospace; font-size:0.9rem; color:var(--ink-soft); }
+  .top-right{ display:flex; align-items:center; gap:14px; }
   nav.links{ display:flex; align-items:center; gap:22px; font-size:0.9rem; color:var(--ink-soft); }
   nav.links a{ text-decoration:none; }
   nav.links a:hover{ color:var(--indigo); }
-  @media (max-width:640px){ nav.links a.hide-mobile{ display:none; } }
 
   .theme-toggle{
     width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--card); color:var(--ink);
@@ -75,6 +75,27 @@
   }
   .theme-toggle:hover{ border-color:var(--indigo); transform:rotate(14deg); }
   .theme-toggle svg{ width:16px; height:16px; }
+
+  .menu-toggle{
+    display:none; width:36px; height:36px; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--ink); cursor:pointer; align-items:center; justify-content:center;
+    flex-shrink:0; transition:border-color .2s;
+  }
+  .menu-toggle:hover{ border-color:var(--indigo); }
+  .menu-toggle svg{ width:18px; height:18px; }
+
+  @media (max-width:640px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      flex-direction:column; align-items:flex-start; gap:16px;
+      padding:20px 28px 24px; display:none;
+      box-shadow:var(--shadow);
+    }
+    nav.links.open{ display:flex; }
+    nav.links a{ font-size:1rem; width:100%; }
+    .menu-toggle{ display:flex; }
+  }
 
   .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
@@ -202,15 +223,20 @@
     <a class="brand" href="index.html">
       <span class="back-arrow">←</span> Menuka<span class="dot">.</span>Mukhiya
     </a>
-    <nav class="links">
-      <a class="hide-mobile" href="#basics">Basics</a>
-      <a class="hide-mobile" href="#process">Process</a>
-      <a class="hide-mobile" href="#types">Testing types</a>
-      <a class="hide-mobile" href="#glossary">Glossary</a>
+    <div class="top-right">
+      <nav class="links" id="navLinks">
+        <a href="#basics">Basics</a>
+        <a href="#process">Process</a>
+        <a href="#types">Testing types</a>
+        <a href="#glossary">Glossary</a>
+      </nav>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
       </button>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" title="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -223,7 +249,7 @@
   </section>
 
   <section id="basics" class="reveal">
-    <div class="section-head"><h2>The basics</h2><span class="section-num mono">01</span></div>
+    <div class="section-head"><h2>The basics</h2><span class="section-num mono"></span></div>
     <p class="lede">Most people think QA means clicking around an app looking for bugs. That's only a small part of it.</p>
     <div class="definition">
       <div class="term">DEFINITION</div>
@@ -233,7 +259,7 @@
   </section>
 
   <section class="reveal">
-    <div class="section-head"><h2>QA vs. QC vs. Testing</h2><span class="section-num mono">02</span></div>
+    <div class="section-head"><h2>QA vs. QC vs. Testing</h2><span class="section-num mono"></span></div>
     <p class="lede">These three terms get used interchangeably, but they mean different things.</p>
     <div class="triad">
       <div class="card c1">
@@ -255,7 +281,7 @@
   </section>
 
   <section id="process" class="reveal">
-    <div class="section-head"><h2>The QA process</h2><span class="section-num mono">03</span></div>
+    <div class="section-head"><h2>The QA process</h2><span class="section-num mono"></span></div>
     <p class="lede">A simplified version of the Software Testing Life Cycle (STLC).</p>
     <div class="process">
       <div class="step">
@@ -286,7 +312,7 @@
   </section>
 
   <section id="types" class="reveal">
-    <div class="section-head"><h2>Types of testing</h2><span class="section-num mono">04</span></div>
+    <div class="section-head"><h2>Types of testing</h2><span class="section-num mono"></span></div>
     <p class="lede">The core categories every QA learner runs into early.</p>
     <div class="types-grid">
       <div class="type-card"><h3>Functional</h3><p>Does the feature do what it's supposed to do?</p></div>
@@ -305,7 +331,7 @@
   </section>
 
   <section class="reveal">
-    <div class="section-head"><h2>Manual vs. automated</h2><span class="section-num mono">05</span></div>
+    <div class="section-head"><h2>Manual vs. automated</h2><span class="section-num mono"></span></div>
     <div class="versus">
       <div class="side">
         <h3>Manual testing</h3>
@@ -328,7 +354,7 @@
   </section>
 
   <section id="glossary" class="reveal">
-    <div class="section-head"><h2>Glossary</h2><span class="section-num mono">06</span></div>
+    <div class="section-head"><h2>Glossary</h2><span class="section-num mono"></span></div>
     <div class="glossary">
       <div class="gterm"><div class="t mono">Test case</div><div class="d">A documented set of steps, inputs, and expected results used to verify one specific behavior.</div></div>
       <div class="gterm"><div class="t mono">Test plan</div><div class="d">A document outlining scope, approach, resources, and schedule for a testing effort.</div></div>
@@ -356,6 +382,20 @@
 </footer>
 
 <script>
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ nav.classList.remove('open'); });
+    });
+    document.addEventListener('click', function(ev){
+      if(!nav.contains(ev.target) && !toggle.contains(ev.target)){ nav.classList.remove('open'); }
+    });
+  }
+})();
+
 (function(){
   var SUN = 'M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.3 6.3 4.6 4.6m14.8 14.8-1.7-1.7M17.7 6.3l1.7-1.7M6.3 17.7l-1.7 1.7M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z';
   var MOON = 'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z';
