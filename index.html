@@ -266,6 +266,60 @@
   .footer-links a:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
   .footer-links svg{ width:14px; height:14px; }
   .copyright{ margin-top:46px; font-size:0.78rem; color:var(--ink-soft); }
+  /* ---------- resume dropdown ---------- */
+.resume-dropdown{ position:relative; }
+.resume-dropdown-btn{
+  text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
+  display:inline-flex; align-items:center; gap:7px; background:var(--card); color:var(--ink);
+  transition:border-color .2s, transform .2s, box-shadow .2s; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
+}
+.resume-dropdown-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
+.resume-dropdown-btn svg{ width:14px; height:14px; }
+.resume-dropdown-btn .chevron{ width:11px; height:11px; transition:transform .2s; }
+.resume-dropdown.open .chevron{ transform:rotate(180deg); }
+.resume-dropdown-menu{
+  position:absolute; bottom:calc(100% + 8px); left:0; min-width:170px;
+  background:var(--card); border:1px solid var(--line); border-radius:10px;
+  box-shadow:var(--shadow-hover); padding:6px; display:none; z-index:30;
+}
+.resume-dropdown.open .resume-dropdown-menu{ display:block; }
+.resume-dropdown-menu a, .resume-dropdown-menu button{
+  display:flex; align-items:center; gap:9px; width:100%; text-align:left;
+  padding:9px 10px; border-radius:6px; border:none; background:none; cursor:pointer;
+  font-family:'IBM Plex Sans', sans-serif; font-size:0.88rem; color:var(--ink); text-decoration:none;
+}
+.resume-dropdown-menu a:hover, .resume-dropdown-menu button:hover{ background:var(--indigo-soft); color:var(--indigo); }
+.resume-dropdown-menu svg{ width:15px; height:15px; flex-shrink:0; }
+
+/* ---------- resume preview modal ---------- */
+.resume-modal{
+  position:fixed; inset:0; z-index:100; display:none;
+  align-items:center; justify-content:center; padding:24px;
+}
+.resume-modal.open{ display:flex; }
+.resume-modal-backdrop{ position:absolute; inset:0; background:rgba(15,17,22,0.55); backdrop-filter:blur(3px); }
+.resume-modal-box{
+  position:relative; width:100%; max-width:820px; height:88vh;
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-hover); display:flex; flex-direction:column; overflow:hidden;
+}
+.resume-modal-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px; border-bottom:1px solid var(--line); flex-shrink:0;
+}
+.resume-modal-title{ font-family:'Fraunces', serif; font-size:1rem; }
+.resume-modal-close{
+  width:32px; height:32px; border-radius:8px; border:1px solid var(--line);
+  background:var(--paper); color:var(--ink); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:border-color .2s;
+}
+.resume-modal-close svg{ width:16px; height:16px; }
+.resume-modal-close:hover{ border-color:var(--indigo); color:var(--indigo); }
+.resume-modal-frame{ flex:1; width:100%; border:none; background:#fff; }
+@media (max-width:640px){
+  .resume-modal{ padding:0; }
+  .resume-modal-box{ max-width:100%; height:100vh; border-radius:0; }
+}
 
   :focus-visible{ outline:2px solid var(--indigo); outline-offset:2px; }
   @media (prefers-reduced-motion: reduce){
@@ -379,17 +433,39 @@
        <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
      <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
   GitHub
-<a href="Menuka_Mukhiya_Resume.pdf" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>View Resume
-</a>
-<a href="Menuka_Mukhiya_Resume.pdf" download>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Download
-</a>
+<div class="resume-dropdown" id="resumeDropdown">
+  <button class="resume-dropdown-btn" id="resumeDropdownBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    Resume
+    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+  </button>
+  <div class="resume-dropdown-menu">
+    <button id="resumePreviewOption">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
+      Preview
+    </button>
+    <a href="Menuka_Mukhiya_Resume.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      Download
+    </a>
+  </div>
+</div>
     </div>
     <div class="copyright">Placeholder content — replace project links, resume, and socials with your own.</div>
   </div>
 </footer>
-
+<div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume preview">
+  <div class="resume-modal-backdrop" id="resumeModalBackdrop"></div>
+  <div class="resume-modal-box">
+    <div class="resume-modal-head">
+      <span class="resume-modal-title">Menuka Mukhiya — Resume</span>
+      <button class="resume-modal-close" id="closeResumeModal" aria-label="Close" title="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <iframe class="resume-modal-frame" id="resumeModalFrame" src="" title="Resume preview"></iframe>
+  </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
