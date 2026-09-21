@@ -2,351 +2,382 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menuka Mukhiya — Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Menuka Mukhiya — Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF9F5;
-    --ink:#1A1F27;
-    --ink-soft:#5C6675;
-    --line:#E2DFD6;
-    --line-soft:#EDEBE2;
-    --indigo:#4854C7;
-    --indigo-2:#7A6FE0;
-    --indigo-soft:#EEF0FB;
-    --amber:#C6862E;
-    --amber-soft:#FBF0DF;
-    --sage:#4F7D60;
-    --sage-soft:#E9F2EB;
-    --card:#FFFFFF;
-    --shadow: 0 1px 2px rgba(26,31,39,0.04), 0 8px 24px rgba(26,31,39,0.06);
-    --shadow-hover: 0 4px 10px rgba(26,31,39,0.06), 0 16px 40px rgba(72,84,199,0.14);
+    --bg:#F7F7FA; --bg2:#FFFFFF; --ink:#161822; --ink-soft:#5B5F72;
+    --line:#E4E4EC; --card:#FFFFFF;
+    --violet:#6C5CE7; --violet2:#8E7CFF; --cyan:#22C3E6; --amber:#E8A33D;
+    --violet-soft:#EFEBFF; --cyan-soft:#E4F8FC; --amber-soft:#FCF1DF;
+    --shadow: 0 1px 2px rgba(22,24,34,0.04), 0 8px 24px rgba(22,24,34,0.06);
+    --shadow-hover: 0 4px 10px rgba(22,24,34,0.08), 0 20px 48px rgba(108,92,231,0.18);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B0C12; --bg2:#111319; --ink:#EDEEF5; --ink-soft:#9296A8;
+    --line:#22242E; --card:#151722;
+    --violet:#8E7CFF; --violet2:#A79BFF; --cyan:#3FD7F5; --amber:#F0B653;
+    --violet-soft:#1D1B33; --cyan-soft:#0F262B; --amber-soft:#2A2113;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4);
+    --shadow-hover: 0 4px 14px rgba(0,0,0,0.4), 0 20px 50px rgba(142,124,255,0.22);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#0F1116;
-      --ink:#EDEEF2;
-      --ink-soft:#99A2B2;
-      --line:#262A34;
-      --line-soft:#191C23;
-      --indigo:#8B93E8;
-      --indigo-2:#A9A0F5;
-      --indigo-soft:#1D2140;
-      --amber:#E0AC5C;
-      --amber-soft:#2C2413;
-      --sage:#7FBB92;
-      --sage-soft:#182B1E;
-      --card:#161922;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
-      --shadow-hover: 0 4px 10px rgba(0,0,0,0.35), 0 16px 44px rgba(139,147,232,0.18);
+      --bg:#0B0C12; --bg2:#111319; --ink:#EDEEF5; --ink-soft:#9296A8;
+      --line:#22242E; --card:#151722;
+      --violet:#8E7CFF; --violet2:#A79BFF; --cyan:#3FD7F5; --amber:#F0B653;
+      --violet-soft:#1D1B33; --cyan-soft:#0F262B; --amber-soft:#2A2113;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4);
+      --shadow-hover: 0 4px 14px rgba(0,0,0,0.4), 0 20px 50px rgba(142,124,255,0.22);
     }
-  }
-  :root[data-theme="dark"]{
-    --paper:#0F1116; --ink:#EDEEF2; --ink-soft:#99A2B2; --line:#262A34; --line-soft:#191C23;
-    --indigo:#8B93E8; --indigo-2:#A9A0F5; --indigo-soft:#1D2140; --amber:#E0AC5C; --amber-soft:#2C2413;
-    --sage:#7FBB92; --sage-soft:#182B1E; --card:#161922;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
-    --shadow-hover: 0 4px 10px rgba(0,0,0,0.35), 0 16px 44px rgba(139,147,232,0.18);
   }
 
   *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+  html{ scroll-behavior:smooth; height:100%; scroll-padding-top:72px; }
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing:antialiased;
-    line-height:1.6;
-    transition:background .35s ease, color .35s ease;
-    overflow-x:hidden;
+    margin:0; min-height:100%; background:var(--bg); color:var(--ink);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.6;
+    transition:background .3s ease, color .3s ease; overflow-x:hidden;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   }
-  ::selection{ background:var(--indigo); color:#fff; }
+  ::selection{ background:var(--violet); color:#fff; }
   a{ color:inherit; }
-  h1,h2,h3{ font-family:'Fraunces', Georgia, serif; font-weight:500; margin:0; }
+  h1,h2,h3{ font-family:'Sora', sans-serif; font-weight:700; margin:0; }
   .mono{ font-family:'IBM Plex Mono', monospace; }
-
-  .wrap{ max-width:920px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
-
-  /* ---------- ambient background glow ---------- */
-  .glow{
-    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
-  }
-  .glow::before, .glow::after{
-    content:""; position:absolute; border-radius:50%; filter:blur(90px); opacity:0.35;
-  }
-  .glow::before{
-    width:520px; height:520px; background:var(--indigo-2); top:-180px; left:-140px;
-  }
-  .glow::after{
-    width:460px; height:460px; background:var(--amber); top:220px; right:-160px; opacity:0.18;
-  }
-  @media (prefers-color-scheme: dark){ .glow::before, .glow::after{ opacity:0.16; } }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+  img{ max-width:100%; }
 
   /* ---------- header ---------- */
   header.top{
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; background:color-mix(in srgb, var(--paper) 88%, transparent);
-    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    z-index:20;
+    border-bottom:1px solid var(--line); position:sticky; top:env(safe-area-inset-top,0px);
+    background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); z-index:50;
   }
   .top-inner{
-    max-width:920px; margin:0 auto; padding:16px 28px;
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-    position:relative;
+    max-width:1120px; margin:0 auto; padding:16px 28px;
+    display:flex; justify-content:space-between; align-items:center; gap:16px; position:relative;
   }
-  .brand{ font-family:'Fraunces', serif; font-size:1.05rem; }
-  .brand .dot{ color:var(--indigo); }
+  .brand{ font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px; }
+  .brand .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--violet);
+    background:var(--violet-soft); padding:3px 7px; border-radius:5px;
+  }
   .top-right{ display:flex; align-items:center; gap:14px; }
-  nav.links{ display:flex; align-items:center; gap:22px; font-size:0.9rem; color:var(--ink-soft); }
-  nav.links a{ text-decoration:none; position:relative; padding-bottom:2px; }
+  nav.links{ display:flex; align-items:center; gap:24px; font-size:0.9rem; color:var(--ink-soft); }
+  nav.links a{ text-decoration:none; position:relative; padding-bottom:2px; font-weight:500; }
   nav.links a::after{
-    content:""; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
-    background:var(--indigo); transition:width .25s ease;
+    content:""; position:absolute; left:0; bottom:-3px; width:0; height:2px;
+    background:linear-gradient(90deg,var(--violet),var(--cyan)); transition:width .25s ease; border-radius:2px;
   }
   nav.links a:hover{ color:var(--ink); }
   nav.links a:hover::after{ width:100%; }
 
-  .theme-toggle{
-    width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+  .icon-btn{
+    width:36px; height:36px; border-radius:10px; border:1px solid var(--line);
     background:var(--card); color:var(--ink); cursor:pointer;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
     transition:border-color .2s, transform .2s;
   }
-  .theme-toggle:hover{ border-color:var(--indigo); transform:rotate(14deg); }
-  .theme-toggle svg{ width:16px; height:16px; }
+  .icon-btn:hover{ border-color:var(--violet); transform:translateY(-1px); }
+  .icon-btn svg{ width:16px; height:16px; }
+
+  .cv-btn{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none; cursor:pointer;
+    background:linear-gradient(100deg,var(--violet),var(--violet2)); color:#fff; border:none;
+    padding:10px 18px; border-radius:24px; font-size:0.88rem; font-weight:600;
+    font-family:'Inter',sans-serif; box-shadow:0 6px 18px rgba(108,92,231,0.3);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .cv-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(108,92,231,0.4); }
+  .cv-btn svg{ width:15px; height:15px; }
 
   .menu-toggle{
-    display:none; width:36px; height:36px; border-radius:8px; border:1px solid var(--line);
+    display:none; width:36px; height:36px; border-radius:10px; border:1px solid var(--line);
     background:var(--card); color:var(--ink); cursor:pointer; align-items:center; justify-content:center;
-    flex-shrink:0; transition:border-color .2s;
+    flex-shrink:0;
   }
-  .menu-toggle:hover{ border-color:var(--indigo); }
   .menu-toggle svg{ width:18px; height:18px; }
 
-  @media (max-width:640px){
+  @media (max-width:860px){
     nav.links{
-      position:absolute; top:100%; left:0; right:0;
-      background:var(--paper); border-bottom:1px solid var(--line);
-      flex-direction:column; align-items:flex-start; gap:16px;
-      padding:20px 28px 24px; display:none;
-      box-shadow:var(--shadow);
+      position:absolute; top:100%; left:0; right:0; background:var(--bg);
+      border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; gap:16px;
+      padding:20px 28px 24px; display:none; box-shadow:var(--shadow);
     }
     nav.links.open{ display:flex; }
     nav.links a{ font-size:1rem; width:100%; }
     .menu-toggle{ display:flex; }
+    .cv-btn span{ display:none; }
+    .cv-btn{ padding:10px; }
   }
 
-  /* ---------- reveal-on-scroll ---------- */
-  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+  /* ---------- reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
   /* ---------- hero ---------- */
-  .hero{ padding:88px 0 60px; border-bottom:1px solid var(--line); position:relative; }
-  .prompt{
-    font-family:'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--sage);
-    margin-bottom:18px; display:inline-flex; align-items:center; gap:8px;
+  .hero{ padding:64px 0 60px; position:relative; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center; }
+  @media (max-width:860px){ .hero-grid{ grid-template-columns:1fr; } .hero-photo-wrap{ order:-1; margin:0 auto; } }
+  .hello-badge{
+    display:inline-flex; align-items:center; gap:7px; background:var(--card); border:1px solid var(--line);
+    padding:6px 14px; border-radius:20px; font-size:0.85rem; color:var(--ink-soft); margin-bottom:18px;
   }
-  .prompt::before{ content:"$"; color:var(--ink-soft); }
-  .caret{
-    display:inline-block; width:7px; height:1em; background:var(--sage);
-    animation:blink 1.1s steps(1) infinite; vertical-align:-2px;
-  }
-  @keyframes blink{ 50%{ opacity:0; } }
-
-  .hero h1{
-    font-size:clamp(2.4rem, 6vw, 3.6rem); line-height:1.08; max-width:17ch; letter-spacing:-0.01em;
-  }
-  .hero h1 .accent{
-    font-style:italic;
-    background:linear-gradient(100deg, var(--indigo) 0%, var(--indigo-2) 60%, var(--amber) 100%);
+  .hero h1{ font-size:clamp(2.1rem,5.2vw,3.1rem); line-height:1.1; }
+  .hero h1 .gradient{
+    background:linear-gradient(100deg,var(--violet),var(--cyan));
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .hero p.tagline{ max-width:54ch; color:var(--ink-soft); font-size:1.1rem; margin-top:22px; }
-  .contact-row{ margin-top:30px; display:flex; flex-wrap:wrap; gap:12px 14px; font-size:0.9rem; }
-  .contact-row a{
-    text-decoration:none; border:1px solid var(--line); padding:8px 14px; border-radius:24px;
-    display:inline-flex; align-items:center; gap:7px; transition:border-color .2s, transform .2s, box-shadow .2s;
-    background:var(--card);
+  .hero .role{ font-size:1.15rem; color:var(--ink-soft); margin-top:10px; font-weight:500; }
+  .hero .role .sep{ color:var(--line); margin:0 8px; }
+  .hero p.tagline{ max-width:52ch; color:var(--ink-soft); margin-top:16px; font-size:1rem; }
+  .hero-btns{ margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    background:linear-gradient(100deg,var(--violet),var(--violet2)); color:#fff;
+    padding:12px 22px; border-radius:26px; font-weight:600; font-size:0.92rem;
+    box-shadow:0 8px 20px rgba(108,92,231,0.3); transition:transform .2s;
   }
-  .contact-row a:hover{ border-color:var(--indigo); color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
-  .contact-row svg{ width:14px; height:14px; }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-secondary{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    background:var(--card); border:1px solid var(--line); color:var(--ink);
+    padding:12px 22px; border-radius:26px; font-weight:600; font-size:0.92rem; transition:border-color .2s, transform .2s;
+  }
+  .btn-secondary:hover{ border-color:var(--violet); transform:translateY(-2px); }
+  .hero-btns svg{ width:15px; height:15px; }
+  .hero-socials{ margin-top:24px; display:flex; gap:12px; }
+  .hero-socials a{
+    width:40px; height:40px; border-radius:11px; border:1px solid var(--line); background:var(--card);
+    display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--ink);
+    transition:border-color .2s, transform .2s, color .2s;
+  }
+  .hero-socials a:hover{ border-color:var(--violet); color:var(--violet); transform:translateY(-2px); }
+  .hero-socials svg{ width:18px; height:18px; }
 
-  section{ padding:60px 0; border-bottom:1px solid var(--line); }
-  section:last-of-type{ border-bottom:none; }
-  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:32px; gap:16px; }
-  .section-head h2{ font-size:1.7rem; }
-  .section-num{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft); }
+  .hero-photo-wrap{ position:relative; width:min(340px,80vw); margin-left:auto; }
+  .hero-photo-blob{
+    position:absolute; inset:-18px; border-radius:38% 62% 63% 37% / 41% 44% 56% 59%;
+    background:linear-gradient(135deg,var(--violet),var(--cyan)); opacity:0.9; z-index:0;
+    animation:blobmove 9s ease-in-out infinite;
+  }
+  @keyframes blobmove{
+    0%,100%{ border-radius:38% 62% 63% 37% / 41% 44% 56% 59%; }
+    50%{ border-radius:56% 44% 40% 60% / 55% 40% 60% 45%; }
+  }
+  .hero-photo{
+    position:relative; z-index:1; width:100%; aspect-ratio:1/1; border-radius:32px;
+    overflow:hidden; box-shadow:var(--shadow-hover); border:4px solid var(--bg);
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .hero-note{
+    position:absolute; right:-6px; bottom:-10px; z-index:2; font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem; color:var(--ink-soft); background:var(--card); border:1px solid var(--line);
+    padding:8px 12px; border-radius:10px; box-shadow:var(--shadow); line-height:1.5;
+  }
+  @media (max-width:640px){ .hero-note{ display:none; } }
 
-  /* ---------- about ---------- */
-  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:44px; }
-  @media (max-width:700px){ .about-grid{ grid-template-columns:1fr; gap:26px; } }
-  .about-grid p{ color:var(--ink-soft); max-width:56ch; }
-  .about-grid p + p{ margin-top:14px; }
-  .edu-card{
-    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:22px 24px;
-    box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease;
+  section{ padding:60px 0; border-top:1px solid var(--line); }
+  .section-tag{
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem; color:var(--violet); background:var(--violet-soft); padding:5px 12px;
+    border-radius:16px; margin-bottom:14px;
   }
-  .edu-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-hover); }
-  .edu-card .deg{ font-family:'Fraunces', serif; font-size:1.15rem; }
-  .edu-card .school{ color:var(--indigo); font-size:0.92rem; margin-top:4px; }
-  .edu-card .when{ color:var(--ink-soft); font-size:0.82rem; margin-top:8px; }
-  .edu-card .status{
-    display:inline-block; margin-top:12px; font-size:0.76rem;
-    background:var(--sage-soft); color:var(--sage); padding:4px 10px; border-radius:4px;
-  }
+  .section-head h2{ font-size:1.8rem; margin-bottom:12px; }
+  .section-head p{ color:var(--ink-soft); max-width:60ch; }
 
-  /* ---------- skills (react) ---------- */
-  #skills-root{ min-height:60px; }
-  .tabs{ display:flex; gap:8px; margin-bottom:28px; }
-  .tab-btn{
-    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
-    background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
-    padding:8px 16px; border-radius:20px; cursor:pointer;
-    transition:border-color .15s, color .15s, background .15s, transform .15s;
+  /* ---------- about + skills tools ---------- */
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; margin-top:36px; }
+  @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:32px; } }
+  .about-grid p{ color:var(--ink-soft); }
+  .about-grid p + p{ margin-top:12px; }
+  .info-list{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+  .info-list div{ display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--ink-soft); }
+  .info-list svg{ width:16px; height:16px; color:var(--violet); flex-shrink:0; }
+
+  .tools-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media (max-width:520px){ .tools-grid{ grid-template-columns:repeat(2,1fr); } }
+  .tool-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 14px;
+    text-align:center; transition:transform .2s ease, box-shadow .2s ease, border-color .2s;
   }
-  .tab-btn:hover{ color:var(--ink); transform:translateY(-1px); }
-  .tab-btn.active{ background:var(--indigo); border-color:var(--indigo); color:#fff; }
-  .bar-row{ display:flex; align-items:center; gap:16px; margin-bottom:18px; }
-  .bar-row .name{ width:90px; flex-shrink:0; font-size:0.94rem; font-weight:500; }
-  .bar-track{ flex:1; height:9px; background:var(--line-soft); border-radius:6px; overflow:hidden; }
-  .bar-fill{
-    height:100%; border-radius:6px; width:0%;
-    background:linear-gradient(90deg, var(--amber), var(--indigo-2));
-    transition:width 1.1s cubic-bezier(.2,.8,.2,1);
+  .tool-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:transparent; }
+  .tool-card .ic{
+    width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    margin:0 auto 10px; font-size:1.05rem; font-weight:700;
   }
-  .bar-row .pct{ width:42px; text-align:right; font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--ink-soft); }
-  .learning-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:14px; }
-  .learn-card{
-    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px;
-    box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease;
+  .tool-card .lbl{ font-size:0.82rem; font-weight:600; }
+
+  /* ---------- skill bars ---------- */
+  .skill-levels{ margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:32px 48px; }
+  @media (max-width:700px){ .skill-levels{ grid-template-columns:1fr; gap:20px; } }
+  .bar-row{ margin-bottom:18px; }
+  .bar-row:last-child{ margin-bottom:0; }
+  .bar-row .top{ display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:7px; }
+  .bar-row .top .pct{ font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); }
+  .bar-track{ height:8px; background:var(--line); border-radius:6px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:6px; width:0%; background:linear-gradient(90deg,var(--violet),var(--cyan)); transition:width 1.1s cubic-bezier(.2,.8,.2,1); }
+
+  .learning-row{ margin-top:8px; display:flex; flex-wrap:wrap; gap:10px; }
+  .learn-chip{
+    display:inline-flex; align-items:center; gap:8px; background:var(--amber-soft); color:var(--amber);
+    border-radius:20px; padding:8px 14px; font-size:0.85rem; font-weight:600;
   }
-  .learn-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-hover); }
-  .learn-card .lname{ font-family:'Fraunces', serif; font-size:1.05rem; }
-  .learn-card .lstatus{
-    display:inline-block; margin-top:8px; font-size:0.74rem;
-    background:var(--amber-soft); color:var(--amber); padding:3px 9px; border-radius:4px;
-  }
+  .learn-chip .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); }
 
   /* ---------- projects ---------- */
-  .projects{ display:flex; flex-direction:column; gap:18px; }
-  .proj{
-    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:26px 28px;
-    box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    position:relative; overflow:hidden;
+  .projects-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:36px; }
+  @media (max-width:860px){ .projects-grid{ grid-template-columns:1fr; } }
+  .proj-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column;
   }
-  .proj::before{
-    content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
-    background:linear-gradient(180deg, var(--indigo), var(--amber)); opacity:0; transition:opacity .25s ease;
+  .proj-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow-hover); }
+  .proj-thumb{
+    height:140px; display:flex; align-items:center; justify-content:center;
+    font-family:'Sora',sans-serif; font-weight:700; font-size:1.1rem; color:#fff;
   }
-  .proj:hover{ transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:transparent; }
-  .proj:hover::before{ opacity:1; }
-  .proj-top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; }
-  .proj h3{ font-size:1.15rem; }
-  .stack{ display:flex; gap:8px; flex-wrap:wrap; }
-  .stack span{
-    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
-    background:var(--indigo-soft); color:var(--indigo); padding:3px 9px; border-radius:4px;
+  .proj-body{ padding:20px 20px 22px; flex:1; display:flex; flex-direction:column; }
+  .proj-body h3{ font-size:1.05rem; }
+  .proj-body p{ color:var(--ink-soft); font-size:0.88rem; margin-top:8px; flex:1; }
+  .proj-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .proj-tags span{
+    font-size:0.72rem; background:var(--violet-soft); color:var(--violet); padding:3px 9px; border-radius:12px;
+    font-family:'IBM Plex Mono',monospace;
   }
-  .proj p{ color:var(--ink-soft); font-size:0.93rem; margin-top:12px; max-width:60ch; }
 
-  /* ---------- footer ---------- */
-  footer{ padding:64px 0 74px; position:relative; }
+  /* ---------- QA showcase ---------- */
+  .qa-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
+  @media (max-width:860px){ .qa-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .qa-grid{ grid-template-columns:1fr; } }
+  .qa-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 18px;
+    transition:transform .2s ease, box-shadow .2s ease; text-decoration:none; color:var(--ink); display:block;
+  }
+  .qa-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:transparent; }
+  .qa-card .ic{
+    width:34px; height:34px; border-radius:9px; background:var(--cyan-soft); color:var(--cyan);
+    display:flex; align-items:center; justify-content:center; margin-bottom:12px;
+  }
+  .qa-card .ic svg{ width:17px; height:17px; }
+  .qa-card h3{ font-size:0.96rem; }
+  .qa-card p{ color:var(--ink-soft); font-size:0.82rem; margin-top:6px; }
+  .qa-cta{ margin-top:26px; display:flex; }
+
+  /* ---------- training ---------- */
+  .training-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; }
+  @media (max-width:700px){ .training-grid{ grid-template-columns:1fr; } }
+  .training-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px;
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .training-card .ic{
+    width:40px; height:40px; border-radius:10px; background:var(--violet-soft); color:var(--violet);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .training-card .ic svg{ width:19px; height:19px; }
+  .training-card h3{ font-size:0.98rem; }
+  .training-card .dur{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:var(--ink-soft); margin-top:2px; }
+  .training-card p{ color:var(--ink-soft); font-size:0.86rem; margin-top:8px; }
+
+  /* ---------- map / location ---------- */
+  .map-box{
+    margin-top:32px; border-radius:16px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:var(--shadow); position:relative;
+  }
+  .map-box iframe{ width:100%; height:320px; border:none; display:block; filter:grayscale(0.15); }
+  .map-pin-note{
+    position:absolute; top:14px; left:14px; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:8px 14px; font-size:0.82rem; display:flex; align-items:center; gap:8px;
+    box-shadow:var(--shadow);
+  }
+  .map-pin-note svg{ width:15px; height:15px; color:var(--violet); }
+
+  /* ---------- contact / footer ---------- */
+  footer{ padding:64px 0 40px; border-top:1px solid var(--line); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+  @media (max-width:800px){ .contact-grid{ grid-template-columns:1fr; gap:28px; } }
   footer h2{ font-size:1.9rem; max-width:16ch; }
   footer p.sub{ color:var(--ink-soft); margin-top:14px; max-width:44ch; }
-  .footer-links{ margin-top:30px; display:flex; flex-wrap:wrap; gap:12px; }
-  .footer-links a, .footer-link-btn{
-    text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
-    display:inline-flex; align-items:center; gap:7px; background:var(--card);
-    transition:border-color .2s, transform .2s, box-shadow .2s;
-    font-family:'IBM Plex Sans', sans-serif; color:var(--ink); cursor:pointer;
+  .contact-links{ margin-top:26px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .contact-links a, .contact-links .resume-dropdown-btn{
+    text-decoration:none; font-size:0.9rem; border:1px solid var(--line); padding:10px 16px; border-radius:24px;
+    display:inline-flex; align-items:center; gap:8px; background:var(--card); color:var(--ink);
+    transition:border-color .2s, transform .2s, box-shadow .2s; cursor:pointer; font-family:'Inter',sans-serif;
   }
-  .footer-links a:hover, .footer-link-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
-  .footer-links svg, .footer-link-btn svg{ width:14px; height:14px; }
-  .copyright{ margin-top:46px; font-size:0.78rem; color:var(--ink-soft); }
+  .contact-links a:hover, .contact-links .resume-dropdown-btn:hover{ border-color:var(--violet); color:var(--violet); transform:translateY(-2px); box-shadow:var(--shadow); }
+  .contact-links svg{ width:15px; height:15px; }
+  .contact-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;
+  }
+  .contact-card .row{ display:flex; align-items:center; gap:12px; font-size:0.9rem; padding:10px 0; border-bottom:1px dashed var(--line); }
+  .contact-card .row:last-child{ border-bottom:none; }
+  .contact-card svg{ width:16px; height:16px; color:var(--violet); flex-shrink:0; }
+  .copyright{ margin-top:44px; font-size:0.78rem; color:var(--ink-soft); text-align:center; }
 
   /* ---------- resume dropdown ---------- */
   .resume-dropdown{ position:relative; }
-  .resume-dropdown-btn{
-    text-decoration:none; font-size:0.92rem; border:1px solid var(--line); padding:9px 16px; border-radius:24px;
-    display:inline-flex; align-items:center; gap:7px; background:var(--card); color:var(--ink);
-    transition:border-color .2s, transform .2s, box-shadow .2s; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
-  }
-  .resume-dropdown-btn:hover{ color:var(--indigo); border-color:var(--indigo); transform:translateY(-2px); box-shadow:var(--shadow); }
-  .resume-dropdown-btn svg{ width:14px; height:14px; }
-  .resume-dropdown-btn .chevron{ width:11px; height:11px; transition:transform .2s; }
-  .resume-dropdown.open .chevron{ transform:rotate(180deg); }
   .resume-dropdown-menu{
     position:absolute; bottom:calc(100% + 8px); left:0; min-width:170px;
-    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
     box-shadow:var(--shadow-hover); padding:6px; display:none; z-index:30;
   }
   .resume-dropdown.open .resume-dropdown-menu{ display:block; }
   .resume-dropdown-menu a, .resume-dropdown-menu button{
     display:flex; align-items:center; gap:9px; width:100%; text-align:left;
-    padding:9px 10px; border-radius:6px; border:none; background:none; cursor:pointer;
-    font-family:'IBM Plex Sans', sans-serif; font-size:0.88rem; color:var(--ink); text-decoration:none;
+    padding:9px 10px; border-radius:8px; border:none; background:none; cursor:pointer;
+    font-family:'Inter',sans-serif; font-size:0.86rem; color:var(--ink); text-decoration:none;
   }
-  .resume-dropdown-menu a:hover, .resume-dropdown-menu button:hover{ background:var(--indigo-soft); color:var(--indigo); }
+  .resume-dropdown-menu a:hover, .resume-dropdown-menu button:hover{ background:var(--violet-soft); color:var(--violet); }
   .resume-dropdown-menu svg{ width:15px; height:15px; flex-shrink:0; }
+  .chevron{ width:11px; height:11px; transition:transform .2s; }
+  .resume-dropdown.open .chevron{ transform:rotate(180deg); }
 
-  /* ---------- resume preview modal ---------- */
-  .resume-modal{
-    position:fixed; inset:0; z-index:100; display:none;
-    align-items:center; justify-content:center; padding:24px;
-  }
+  /* ---------- resume modal ---------- */
+  .resume-modal{ position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px; }
   .resume-modal.open{ display:flex; }
-  .resume-modal-backdrop{ position:absolute; inset:0; background:rgba(15,17,22,0.55); backdrop-filter:blur(3px); }
+  .resume-modal-backdrop{ position:absolute; inset:0; background:rgba(6,7,12,0.6); backdrop-filter:blur(3px); }
   .resume-modal-box{
-    position:relative; width:100%; max-width:820px; height:88vh;
-    background:var(--card); border:1px solid var(--line); border-radius:12px;
-    box-shadow:var(--shadow-hover); display:flex; flex-direction:column; overflow:hidden;
+    position:relative; width:100%; max-width:820px; height:88vh; background:var(--card);
+    border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-hover);
+    display:flex; flex-direction:column; overflow:hidden;
   }
-  .resume-modal-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 18px; border-bottom:1px solid var(--line); flex-shrink:0;
-  }
-  .resume-modal-title{ font-family:'Fraunces', serif; font-size:1rem; }
+  .resume-modal-head{ display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--line); }
+  .resume-modal-title{ font-family:'Sora',sans-serif; font-weight:700; font-size:1rem; }
   .resume-modal-close{
-    width:32px; height:32px; border-radius:8px; border:1px solid var(--line);
-    background:var(--paper); color:var(--ink); display:flex; align-items:center; justify-content:center;
-    cursor:pointer; transition:border-color .2s;
+    width:32px; height:32px; border-radius:9px; border:1px solid var(--line); background:var(--bg); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
   }
   .resume-modal-close svg{ width:16px; height:16px; }
-  .resume-modal-close:hover{ border-color:var(--indigo); color:var(--indigo); }
   .resume-modal-frame{ flex:1; width:100%; border:none; background:#fff; }
-  @media (max-width:640px){
-    .resume-modal{ padding:0; }
-    .resume-modal-box{ max-width:100%; height:100vh; border-radius:0; }
-  }
+  @media (max-width:640px){ .resume-modal{ padding:0; } .resume-modal-box{ max-width:100%; height:100vh; border-radius:0; } }
 
-  :focus-visible{ outline:2px solid var(--indigo); outline-offset:2px; }
+  :focus-visible{ outline:2px solid var(--violet); outline-offset:2px; }
   @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    .reveal{ opacity:1; transform:none; transition:none; }
-    .bar-fill{ transition:none; }
+    html{ scroll-behavior:auto; } .reveal{ opacity:1; transform:none; transition:none; }
+    .bar-fill{ transition:none; } .hero-photo-blob{ animation:none; }
   }
 </style>
+
 </head>
 <body>
-
-<div class="glow"></div>
-
 <header class="top">
   <div class="top-inner">
-    <div class="brand">Menuka<span class="dot">.</span>Mukhiya</div>
+    <a href="index.html" class="brand" style="text-decoration:none;"> Menuka Mukhiya</a>
     <div class="top-right">
       <nav class="links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="index.html" style="color:var(--violet);">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
         <a href="qa-notes.html">QA Notes</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
       </button>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" title="Menu">
@@ -357,253 +388,86 @@
 </header>
 
 <div class="wrap">
-
-  <section class="hero">
-    <!-- <div class="prompt">whoami<span class="caret"></span></div> -->
-    <h1>BSc CSIT graduate,<br><span class="accent">building on the front end.</span></h1>
-    <p class="tagline">I'm Menuka Mukhiya — a frontend-leaning developer who just finished a Bachelor's in CSIT at Shreeyantra College. Strong in HTML and CSS, growing into React, and currently learning Python, Java, and software QA.</p>
-    <div class="contact-row">
-      <!-- <a href="mailto:menuka.mukhiya@example.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
-        Email
-      </a> -->
-     <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
-     <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
-  GitHub
-</a>
-    </div>
-  </section>
-
-  <section id="about" class="reveal">
-    <div class="section-head"><h2>About</h2><span class="section-num mono"></span></div>
-    <div class="about-grid">
+  <section id="home" class="hero" style="border-top:none;">
+    <div class="hero-grid">
       <div>
-        <p>I started with HTML and CSS and never really stopped — I like that the front end is where code becomes something people can actually see and use. Over my degree I moved from static pages into React, and I'm now picking up Python and Java alongside the fundamentals of QA, because I want to understand not just how to build software, but how to make sure it works.</p>
-        <p>I learn by building. Most of what's below started as a small project to prove a concept to myself, not a class assignment.</p>
+        <h1>Menuka <span class="gradient">Mukhiya</span></h1>
+        <div class="role">Frontend Developer <span class="sep">|</span> QA Learner</div>
+        <p class="tagline">BSc CSIT graduate building clean, reliable interfaces with HTML, CSS, and React — and learning to test them properly through hands-on QA practice.</p>
+        <div class="hero-btns">
+          <a href="projects.html" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            View My Projects
+          </a>
+          <a href="contact.html" class="btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+            Get in Touch
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Menuka86" target="_blank" rel="noopener" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.58v-2.02c-3.2.7-3.9-1.37-3.9-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.71.08-.71 1.18.08 1.8 1.2 1.8 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.4-1.28.73-1.58-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.77.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17v3.22c0 .33.2.7.8.58A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg>
+          </a>
+          <a href="mailto:menuka.mukhiya04@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="edu-card">
-        <div class="deg">BSc in CSIT</div>
-        <div class="school">Shreeyantra College</div>
-        <div class="when">Bachelor's degree · Completed</div>
-        <span class="status">Graduate</span>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-blob"></div>
+        <div class="hero-photo">
+          <img src="profile.jpg" alt="Menuka Mukhiya">
+        </div>
+        <div class="hero-note">Learn.<br>Build.<br>Test.</div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="reveal">
-    <div class="section-head"><h2>Skills</h2><span class="section-num mono"></span></div>
-    <div id="skills-root"></div>
-  </section>
-
-  <section id="projects" class="reveal">
-    <div class="section-head"><h2>Projects</h2><span class="section-num mono"></span></div>
-    <div class="projects">
-      <div class="proj">
-        <div class="proj-top">
-          <h3>Personal Portfolio Site</h3>
-          <div class="stack"><span>HTML</span><span>CSS</span><span>React</span></div>
-        </div>
-        <p>This site — hand-written HTML/CSS with a small React component powering the interactive skills panel.</p>
-      </div>
-      <div class="proj">
-        <div class="proj-top">
-          <h3>Task Tracker UI</h3>
-          <div class="stack"><span>React</span><span>CSS</span></div>
-        </div>
-        <p>A small React app for adding, completing, and filtering daily tasks — built to practice component state and conditional rendering.</p>
-      </div>
-      <div class="proj">
-        <div class="proj-top">
-          <h3>College Event Landing Page</h3>
-          <div class="stack"><span>HTML</span><span>CSS</span></div>
-        </div>
-        <p>A responsive landing page built for a college event, focused on clean layout and mobile responsiveness without any framework.</p>
-      </div>
-      <div class="proj">
-        <div class="proj-top">
-          <h3><a href="qa-notes.html" target="_blank" rel="noopener" style="text-decoration:none;">QA Notes →</a></h3>
-          <div class="stack"><span>QA</span><span>Notes</span></div>
-        </div>
-        <p>My own working notes on Quality Assurance — definitions, the QA process, testing types, and glossary — written while learning QA alongside development.</p>
-      </div>
+  <section class="reveal">
+    <div class="section-head">
+      <div class="section-tag">Explore</div>
+      <h2>Get to know my work</h2>
+      <p>Four quick doors into the rest of the site.</p>
     </div>
-  </section>
-
-</div>
-
-<footer id="contact" class="reveal">
-  <div class="wrap">
-    <h2>Open to junior roles and internships.</h2>
-    <p class="sub">Frontend development, React projects, or QA/testing internships — happy to talk about any of it.</p>
-    <div class="footer-links">
-      <a href="mailto:menuka.mukhiya@example.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>Email
+    <div class="qa-grid">
+      <a class="qa-card" href="about.html">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></div>
+        <h3>About Me</h3>
+        <p>My background, education, and what I'm learning right now.</p>
       </a>
-    <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">LinkedIn</a>
-     <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
-  GitHub
-</a>
-      <div class="resume-dropdown" id="resumeDropdown">
-  <button class="resume-dropdown-btn" id="resumeDropdownBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-    Resume
-    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
-  </button>
-  <div class="resume-dropdown-menu">
-    <button id="resumePreviewOption">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
-      Preview
-    </button>
-    <a href="Menuka_Mukhiya_Resume.pdf" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-      Download
-    </a>
-  </div>
-</div>
- 
- 
+      <a class="qa-card" href="skills.html">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Skills</h3>
+        <p>HTML, CSS, React skill levels and what I'm learning next.</p>
+      </a>
+      <a class="qa-card" href="projects.html">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Projects</h3>
+        <p>Real things I've built — Recipe App, this site, and more.</p>
+      </a>
+      <a class="qa-card" href="qa-notes.html">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>QA Notes</h3>
+        <p>What I'm learning about Quality Assurance, written as I go.</p>
+      </a>
     </div>
-    <div class="copyright">Placeholder content — replace project links, resume, and socials with your own.</div>
-  </div>
-</footer>
-
-<div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume preview">
-  <div class="resume-modal-backdrop" id="resumeModalBackdrop"></div>
-  <div class="resume-modal-box">
-    <div class="resume-modal-head">
-      <span class="resume-modal-title">Menuka Mukhiya — Resume</span>
-      <button class="resume-modal-close" id="closeResumeModal" aria-label="Close" title="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <iframe class="resume-modal-frame" id="resumeModalFrame" src="" title="Resume preview"></iframe>
-  </div>
+  </section>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
-(function(){
-  var e = React.createElement;
-
-  var CORE_SKILLS = [
-    { name: "HTML", pct: 99 },
-    { name: "CSS", pct: 90 },
-    { name: "React", pct: 65 }
-  ];
-  var LEARNING = [
-    { name: "Python", status: "Beginner" },
-    { name: "Java", status: "Beginner" },
-    { name: "QA / Testing", status: "Learning" }
-  ];
-
-  function SkillBars(){
-    var ref = React.useRef(null);
-    var visState = React.useState(false);
-    var visible = visState[0], setVisible = visState[1];
-
-    React.useEffect(function(){
-      var el = ref.current;
-      if(!el) return;
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting) setVisible(true); });
-      }, { threshold: 0.3 });
-      obs.observe(el);
-      return function(){ obs.disconnect(); };
-    }, []);
-
-    return e('div', { ref: ref },
-      CORE_SKILLS.map(function(s){
-        return e('div', { className: 'bar-row', key: s.name },
-          e('div', { className: 'name' }, s.name),
-          e('div', { className: 'bar-track' },
-            e('div', { className: 'bar-fill', style: { width: (visible ? s.pct : 0) + '%' } })
-          ),
-          e('div', { className: 'pct mono' }, s.pct + '%')
-        );
-      })
-    );
-  }
-
-  function LearningGrid(){
-    return e('div', { className: 'learning-grid' },
-      LEARNING.map(function(s){
-        return e('div', { className: 'learn-card', key: s.name },
-          e('div', { className: 'lname' }, s.name),
-          e('span', { className: 'lstatus' }, s.status)
-        );
-      })
-    );
-  }
-
-  function SkillsPanel(){
-    var state = React.useState('core');
-    var tab = state[0], setTab = state[1];
-    return e(React.Fragment, null,
-      e('div', { className: 'tabs' },
-        e('button', { className: 'tab-btn' + (tab === 'core' ? ' active' : ''), onClick: function(){ setTab('core'); } }, 'core skills'),
-        e('button', { className: 'tab-btn' + (tab === 'learning' ? ' active' : ''), onClick: function(){ setTab('learning'); } }, 'currently learning')
-      ),
-      tab === 'core' ? e(SkillBars) : e(LearningGrid)
-    );
-  }
-
-  ReactDOM.createRoot(document.getElementById('skills-root')).render(e(SkillsPanel));
-})();
-
-// resume dropdown + preview modal
-(function(){
-  var dropdown = document.getElementById('resumeDropdown');
-  var dropdownBtn = document.getElementById('resumeDropdownBtn');
-  var previewOption = document.getElementById('resumePreviewOption');
-  var modal = document.getElementById('resumeModal');
-  var closeBtn = document.getElementById('closeResumeModal');
-  var backdrop = document.getElementById('resumeModalBackdrop');
-  var frame = document.getElementById('resumeModalFrame');
-  var PDF_URL = 'Menuka_Mukhiya_Resume.pdf';
-  if(!dropdown) return;
-
-  dropdownBtn.addEventListener('click', function(ev){
-    ev.stopPropagation();
-    dropdown.classList.toggle('open');
-  });
-  document.addEventListener('click', function(ev){
-    if(!dropdown.contains(ev.target)) dropdown.classList.remove('open');
-  });
-
-function openModal(){
-  frame.src = PDF_URL;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  dropdown.classList.remove('open');
-}
-  function closeModal(){
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  if(previewOption) previewOption.addEventListener('click', openModal);
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
-  if(backdrop) backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', function(ev){
-    if(ev.key === 'Escape') closeModal();
-  });
-})();
-
 // mobile menu toggle
 (function(){
   var toggle = document.getElementById('menuToggle');
   var nav = document.getElementById('navLinks');
   if(!toggle || !nav) return;
-  toggle.addEventListener('click', function(){
-    nav.classList.toggle('open');
-  });
+  toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
   nav.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('open'); });
   });
   document.addEventListener('click', function(ev){
-    if(!nav.contains(ev.target) && !toggle.contains(ev.target)){
-      nav.classList.remove('open');
-    }
+    if(!nav.contains(ev.target) && !toggle.contains(ev.target)){ nav.classList.remove('open'); }
   });
 })();
 
@@ -614,18 +478,14 @@ function openModal(){
   var icon = document.getElementById('themeIcon');
   var btn = document.getElementById('themeToggle');
   var root = document.documentElement;
-
   function prefersDark(){ return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; }
-
   function apply(theme){
     if(theme === 'dark'){ root.setAttribute('data-theme','dark'); icon.innerHTML = '<path d="' + SUN + '"/>'; }
     else { root.setAttribute('data-theme','light'); icon.innerHTML = '<path d="' + MOON + '"/>'; }
   }
-
   var saved = null;
   try{ saved = localStorage.getItem('menuka-portfolio-theme'); } catch(err){}
   apply(saved || (prefersDark() ? 'dark' : 'light'));
-
   btn.addEventListener('click', function(){
     var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     var next = current === 'dark' ? 'light' : 'dark';
@@ -637,15 +497,24 @@ function openModal(){
 // scroll reveal
 (function(){
   var items = document.querySelectorAll('.reveal');
+  function animateBars(container){
+    container.querySelectorAll('.bar-fill').forEach(function(el){
+      el.style.width = el.getAttribute('data-pct') + '%';
+    });
+  }
   if(!('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('in'); });
+    items.forEach(function(el){ el.classList.add('in'); animateBars(el); });
     return;
   }
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
-      if(en.isIntersecting){ en.target.classList.add('in'); obs.unobserve(en.target); }
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        animateBars(en.target);
+        obs.unobserve(en.target);
+      }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.15 });
   items.forEach(function(el){ obs.observe(el); });
 })();
 </script>
