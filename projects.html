@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>QA Notes — Menuka Mukhiya</title>
+<title>Projects — Menuka Mukhiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -250,38 +250,6 @@
     font-family:'IBM Plex Mono',monospace;
   }
 
-  /* ---------- method grid (Postman) ---------- */
-  .method-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:36px; }
-  @media (max-width:900px){ .method-grid{ grid-template-columns:repeat(3,1fr); } }
-  @media (max-width:560px){ .method-grid{ grid-template-columns:repeat(2,1fr); } }
-  .method-card{
-    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 16px;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .method-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-hover); }
-  .method-badge{
-    display:inline-block; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:0.78rem;
-    padding:5px 12px; border-radius:6px; margin-bottom:10px; letter-spacing:0.02em;
-  }
-  .method-badge.get{ background:#E4F8FC; color:#0E8FAE; }
-  .method-badge.post{ background:#E9F7EE; color:#1E9E5A; }
-  .method-badge.put{ background:#FCF1DF; color:#B97B1B; }
-  .method-badge.patch{ background:#EFEBFF; color:#6C5CE7; }
-  .method-badge.delete{ background:#FCE9EC; color:#D0455C; }
-  :root[data-theme="dark"] .method-badge.get{ background:#0F262B; color:#3FD7F5; }
-  :root[data-theme="dark"] .method-badge.post{ background:#122A1C; color:#4ED88A; }
-  :root[data-theme="dark"] .method-badge.put{ background:#2A2113; color:#F0B653; }
-  :root[data-theme="dark"] .method-badge.patch{ background:#1D1B33; color:#A79BFF; }
-  :root[data-theme="dark"] .method-badge.delete{ background:#2B141A; color:#F07E93; }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .method-badge.get{ background:#0F262B; color:#3FD7F5; }
-    :root:not([data-theme="light"]) .method-badge.post{ background:#122A1C; color:#4ED88A; }
-    :root:not([data-theme="light"]) .method-badge.put{ background:#2A2113; color:#F0B653; }
-    :root:not([data-theme="light"]) .method-badge.patch{ background:#1D1B33; color:#A79BFF; }
-    :root:not([data-theme="light"]) .method-badge.delete{ background:#2B141A; color:#F07E93; }
-  }
-  .method-card p{ color:var(--ink-soft); font-size:0.86rem; }
-
   /* ---------- QA showcase ---------- */
   .qa-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
   @media (max-width:860px){ .qa-grid{ grid-template-columns:repeat(2,1fr); } }
@@ -405,8 +373,8 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="qa-notes.html" style="color:var(--violet);">QA Notes</a>
+        <a href="projects.html" style="color:var(--violet);">Projects</a>
+        <a href="qa-notes.html">QA Notes</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
@@ -421,170 +389,36 @@
 
 <div class="wrap">
   <section class="reveal" style="border-top:none; padding-top:48px;">
-    <div class="section-tag">QA Notes</div>
-    <h1 style="font-size:clamp(2rem,4.5vw,2.8rem); line-height:1.15;">What QA actually means <span class="gradient" style="background:linear-gradient(100deg,var(--violet),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic;">in software.</span></h1>
-    <p class="tagline" style="margin-top:16px;">My own working notes on Quality Assurance — definitions, process, testing types, and terminology — written while I learn QA alongside frontend development.</p>
-
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr); margin-top:32px;">
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--violet);">6</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Process Steps (STLC)</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--cyan);">12</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Testing Types Covered</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--amber);">5</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">HTTP Methods (Postman)</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--violet2, var(--violet));">8</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Glossary Terms</div>
-      </div>
-    </div>
-
-    <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; position:sticky; top:80px; z-index:15; background:var(--bg); padding:10px 0;">
-      <a href="#basics" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Basics</a>
-      <a href="#process" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Process</a>
-      <a href="#types" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Testing Types</a>
-      <a href="#manual-auto" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Manual vs Automated</a>
-      <a href="#glossary" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Glossary</a>
-    </div>
-  </section>
-
-  <section id="basics" class="reveal">
     <div class="section-head">
-      <div class="section-tag">Basics</div>
-      <h2>The Basics</h2>
-      <p>Most people think QA means clicking around an app looking for bugs. That's only a small part of it.</p>
+      <div class="section-tag">Work</div>
+      <h2>Featured Projects</h2>
+      <p>A few things I've built while learning — real code, real practice.</p>
     </div>
-    <div class="training-card" style="align-items:flex-start;">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
-      <div>
-        <h3 style="font-size:1.02rem;">Definition</h3>
-        <p><strong style="color:var(--ink);">Quality Assurance (QA)</strong> is the set of activities that ensure a software product meets its requirements and works reliably for the people who use it — before it ever reaches them.</p>
-        <p style="margin-top:10px;">QA isn't a single step at the end of development. It's a mindset applied throughout the entire process: reviewing requirements, designing test cases, executing tests, tracking defects, and confirming fixes.</p>
-      </div>
-    </div>
-
-    <div class="method-grid" style="grid-template-columns:repeat(3,1fr); margin-top:24px;">
-      <div class="method-card">
-        <span class="method-badge get">QA</span>
-        <p><strong style="color:var(--ink);">The process.</strong> Focused on preventing defects by improving the process itself — planning, standards, and reviews before code is even written.</p>
-      </div>
-      <div class="method-card">
-        <span class="method-badge post">QC</span>
-        <p><strong style="color:var(--ink);">The product.</strong> Focused on identifying defects in the actual product — checking whether the built feature meets the requirement.</p>
-      </div>
-      <div class="method-card">
-        <span class="method-badge patch">Testing</span>
-        <p><strong style="color:var(--ink);">The activity.</strong> The specific act of executing a system to find defects — one activity that lives inside QC, which lives inside QA.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Process</div>
-      <h2>The QA Process (STLC)</h2>
-      <p>A simplified version of the Software Testing Life Cycle.</p>
-    </div>
-    <div class="training-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">1</div>
-        <div><h3 style="font-size:0.96rem;">Requirement Analysis</h3><p>Review requirements for gaps, ambiguity, or things that can't actually be tested as written.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">2</div>
-        <div><h3 style="font-size:0.96rem;">Test Planning</h3><p>Decide scope, approach, resources, and schedule — what gets tested, how, and by whom.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">3</div>
-        <div><h3 style="font-size:0.96rem;">Test Case Design</h3><p>Write specific, repeatable test cases and test data covering normal use, edge cases, and failure conditions.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">4</div>
-        <div><h3 style="font-size:0.96rem;">Test Execution</h3><p>Run the test cases manually or through automation, and record what passed and what failed.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">5</div>
-        <div><h3 style="font-size:0.96rem;">Defect Reporting</h3><p>Log failures as clear bug reports with steps to reproduce, expected vs. actual result, and severity.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">6</div>
-        <div><h3 style="font-size:0.96rem;">Retesting &amp; Regression</h3><p>Confirm the fix works, and re-run related tests to make sure nothing else broke because of it.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="types" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Testing Types</div>
-      <h2>Types of Testing</h2>
-      <p>The core categories every QA learner runs into early.</p>
-    </div>
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Functional</h3><p>Does the feature do what it's supposed to do?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8"/></svg></div><h3>Regression</h3><p>Did a new change break something that used to work?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Smoke</h3><p>Quick check that the build is stable enough to test further.</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Sanity</h3><p>Narrow, focused check after a small fix or change.</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4"/></svg></div><h3>Integration</h3><p>Do separate modules work correctly together?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>UAT</h3><p>Does it meet real user needs, tested by actual stakeholders?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Performance</h3><p>How does it behave under load, stress, or many users?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div><h3>Security</h3><p>Can the system be broken into or misused?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Usability</h3><p>Is it actually easy and clear for a real person to use?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Compatibility</h3><p>Does it work across browsers, devices, and screen sizes?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>API Testing</h3><p>Do requests and responses behave correctly at the API layer?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><h3>Automation</h3><p>Scripting repetitive tests so they run without manual effort.</p></div>
-    </div>
-  </section>
-
-  <section id="manual-auto" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Approach</div>
-      <h2>Manual vs. Automated</h2>
-    </div>
-    <div class="training-grid">
-      <div class="training-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <div>
-          <h3>Manual Testing</h3>
-          <p>Best for exploratory testing and new features. Good at catching usability issues a script would miss. Slower to repeat across every release.</p>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,var(--violet),var(--violet2));">Recipe App</div>
+        <div class="proj-body">
+          <h3>Recipe App</h3>
+          <p>A React app where users can search and view recipes — built during a 7-day React workshop, practicing components, props, and state.</p>
+          <div class="proj-tags"><span>React</span><span>CSS</span></div>
         </div>
       </div>
-      <div class="training-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <div>
-          <h3>Automated Testing</h3>
-          <p>Best for repetitive regression checks. Fast and consistent once written and maintained. Doesn't replace human judgment or exploratory testing.</p>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,var(--cyan),#2EA9C7);">Portfolio Site</div>
+        <div class="proj-body">
+          <h3>Personal Portfolio Site</h3>
+          <p>This site — hand-written HTML/CSS with a React-powered interactive skills panel and a working resume preview/download.</p>
+          <div class="proj-tags"><span>HTML</span><span>CSS</span><span>React</span></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="glossary" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Glossary</div>
-      <h2>Glossary</h2>
-    </div>
-    <div class="training-grid" style="grid-template-columns:1fr 1fr;">
-      <div class="method-card"><span class="method-badge get" style="font-family:'IBM Plex Mono',monospace;">Test Case</span><p>A documented set of steps, inputs, and expected results used to verify one specific behavior.</p></div>
-      <div class="method-card"><span class="method-badge post" style="font-family:'IBM Plex Mono',monospace;">Test Plan</span><p>A document outlining scope, approach, resources, and schedule for a testing effort.</p></div>
-      <div class="method-card"><span class="method-badge delete" style="font-family:'IBM Plex Mono',monospace;">Defect / Bug</span><p>An actual flaw in the code that causes it to behave incorrectly.</p></div>
-      <div class="method-card"><span class="method-badge put" style="font-family:'IBM Plex Mono',monospace;">Severity</span><p>How badly a defect affects the system technically — e.g. crashes vs. cosmetic issue.</p></div>
-      <div class="method-card"><span class="method-badge patch" style="font-family:'IBM Plex Mono',monospace;">Priority</span><p>How urgently a defect needs fixing from a business perspective, independent of severity.</p></div>
-      <div class="method-card"><span class="method-badge get" style="font-family:'IBM Plex Mono',monospace;">Regression</span><p>Re-testing previously working features after a change, to confirm nothing broke.</p></div>
-      <div class="method-card"><span class="method-badge post" style="font-family:'IBM Plex Mono',monospace;">STLC</span><p>Software Testing Life Cycle — the structured sequence of testing phases within a project.</p></div>
-      <div class="method-card"><span class="method-badge put" style="font-family:'IBM Plex Mono',monospace;">Edge Case</span><p>An input or condition at the extreme boundary of what's expected — often where bugs hide.</p></div>
-    </div>
-  </section>
-
-  <section class="reveal" style="text-align:center; padding-bottom:70px;">
-    <h2 style="font-size:1.6rem;">Still learning, one test case at a time.</h2>
-    <p style="color:var(--ink-soft); margin-top:10px;">These notes will keep growing as I go deeper into QA.</p>
-    <div style="margin-top:22px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-      <a href="index.html" class="btn-secondary">&larr; Back to Home</a>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,var(--amber),#C77D1F);">Event Page</div>
+        <div class="proj-body">
+          <h3>College Event Landing Page</h3>
+          <p>A responsive landing page for a college event, focused on clean layout and mobile-first responsiveness without any framework.</p>
+          <div class="proj-tags"><span>HTML</span><span>CSS</span></div>
+        </div>
+      </div>
     </div>
   </section>
 </div>

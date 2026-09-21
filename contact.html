@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>QA Notes — Menuka Mukhiya</title>
+<title>Contact — Menuka Mukhiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -250,38 +250,6 @@
     font-family:'IBM Plex Mono',monospace;
   }
 
-  /* ---------- method grid (Postman) ---------- */
-  .method-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:36px; }
-  @media (max-width:900px){ .method-grid{ grid-template-columns:repeat(3,1fr); } }
-  @media (max-width:560px){ .method-grid{ grid-template-columns:repeat(2,1fr); } }
-  .method-card{
-    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 16px;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .method-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-hover); }
-  .method-badge{
-    display:inline-block; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:0.78rem;
-    padding:5px 12px; border-radius:6px; margin-bottom:10px; letter-spacing:0.02em;
-  }
-  .method-badge.get{ background:#E4F8FC; color:#0E8FAE; }
-  .method-badge.post{ background:#E9F7EE; color:#1E9E5A; }
-  .method-badge.put{ background:#FCF1DF; color:#B97B1B; }
-  .method-badge.patch{ background:#EFEBFF; color:#6C5CE7; }
-  .method-badge.delete{ background:#FCE9EC; color:#D0455C; }
-  :root[data-theme="dark"] .method-badge.get{ background:#0F262B; color:#3FD7F5; }
-  :root[data-theme="dark"] .method-badge.post{ background:#122A1C; color:#4ED88A; }
-  :root[data-theme="dark"] .method-badge.put{ background:#2A2113; color:#F0B653; }
-  :root[data-theme="dark"] .method-badge.patch{ background:#1D1B33; color:#A79BFF; }
-  :root[data-theme="dark"] .method-badge.delete{ background:#2B141A; color:#F07E93; }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .method-badge.get{ background:#0F262B; color:#3FD7F5; }
-    :root:not([data-theme="light"]) .method-badge.post{ background:#122A1C; color:#4ED88A; }
-    :root:not([data-theme="light"]) .method-badge.put{ background:#2A2113; color:#F0B653; }
-    :root:not([data-theme="light"]) .method-badge.patch{ background:#1D1B33; color:#A79BFF; }
-    :root:not([data-theme="light"]) .method-badge.delete{ background:#2B141A; color:#F07E93; }
-  }
-  .method-card p{ color:var(--ink-soft); font-size:0.86rem; }
-
   /* ---------- QA showcase ---------- */
   .qa-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
   @media (max-width:860px){ .qa-grid{ grid-template-columns:repeat(2,1fr); } }
@@ -406,8 +374,8 @@
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
-        <a href="qa-notes.html" style="color:var(--violet);">QA Notes</a>
-        <a href="contact.html">Contact</a>
+        <a href="qa-notes.html">QA Notes</a>
+        <a href="contact.html" style="color:var(--violet);">Contact</a>
       </nav>
       <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
@@ -421,172 +389,80 @@
 
 <div class="wrap">
   <section class="reveal" style="border-top:none; padding-top:48px;">
-    <div class="section-tag">QA Notes</div>
-    <h1 style="font-size:clamp(2rem,4.5vw,2.8rem); line-height:1.15;">What QA actually means <span class="gradient" style="background:linear-gradient(100deg,var(--violet),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic;">in software.</span></h1>
-    <p class="tagline" style="margin-top:16px;">My own working notes on Quality Assurance — definitions, process, testing types, and terminology — written while I learn QA alongside frontend development.</p>
-
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr); margin-top:32px;">
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--violet);">6</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Process Steps (STLC)</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--cyan);">12</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Testing Types Covered</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--amber);">5</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">HTTP Methods (Postman)</div>
-      </div>
-      <div class="tool-card" style="text-align:left; padding:20px;">
-        <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--violet2, var(--violet));">8</div>
-        <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Glossary Terms</div>
-      </div>
+    <div class="section-head">
+      <div class="section-tag">Location</div>
+      <h2>Based in Kathmandu, Nepal</h2>
+      <p>Open to remote roles, and local opportunities around the Kathmandu Valley.</p>
     </div>
-
-    <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; position:sticky; top:80px; z-index:15; background:var(--bg); padding:10px 0;">
-      <a href="#basics" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Basics</a>
-      <a href="#process" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Process</a>
-      <a href="#types" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Testing Types</a>
-      <a href="#manual-auto" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Manual vs Automated</a>
-      <a href="#glossary" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Glossary</a>
+    <div class="map-box">
+      <div class="map-pin-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Kathmandu, Nepal
+      </div>
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=85.2410%2C27.6588%2C85.3610%2C27.7388&amp;layer=mapnik&amp;marker=27.6988%2C85.3010"
+        loading="lazy" title="Map showing Kathmandu, Nepal"></iframe>
     </div>
   </section>
+</div>
 
-  <section id="basics" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Basics</div>
-      <h2>The Basics</h2>
-      <p>Most people think QA means clicking around an app looking for bugs. That's only a small part of it.</p>
-    </div>
-    <div class="training-card" style="align-items:flex-start;">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+<footer id="contact" class="reveal">
+  <div class="wrap">
+    <div class="contact-grid">
       <div>
-        <h3 style="font-size:1.02rem;">Definition</h3>
-        <p><strong style="color:var(--ink);">Quality Assurance (QA)</strong> is the set of activities that ensure a software product meets its requirements and works reliably for the people who use it — before it ever reaches them.</p>
-        <p style="margin-top:10px;">QA isn't a single step at the end of development. It's a mindset applied throughout the entire process: reviewing requirements, designing test cases, executing tests, tracking defects, and confirming fixes.</p>
-      </div>
-    </div>
-
-    <div class="method-grid" style="grid-template-columns:repeat(3,1fr); margin-top:24px;">
-      <div class="method-card">
-        <span class="method-badge get">QA</span>
-        <p><strong style="color:var(--ink);">The process.</strong> Focused on preventing defects by improving the process itself — planning, standards, and reviews before code is even written.</p>
-      </div>
-      <div class="method-card">
-        <span class="method-badge post">QC</span>
-        <p><strong style="color:var(--ink);">The product.</strong> Focused on identifying defects in the actual product — checking whether the built feature meets the requirement.</p>
-      </div>
-      <div class="method-card">
-        <span class="method-badge patch">Testing</span>
-        <p><strong style="color:var(--ink);">The activity.</strong> The specific act of executing a system to find defects — one activity that lives inside QC, which lives inside QA.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Process</div>
-      <h2>The QA Process (STLC)</h2>
-      <p>A simplified version of the Software Testing Life Cycle.</p>
-    </div>
-    <div class="training-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">1</div>
-        <div><h3 style="font-size:0.96rem;">Requirement Analysis</h3><p>Review requirements for gaps, ambiguity, or things that can't actually be tested as written.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">2</div>
-        <div><h3 style="font-size:0.96rem;">Test Planning</h3><p>Decide scope, approach, resources, and schedule — what gets tested, how, and by whom.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--violet-soft); color:var(--violet);">3</div>
-        <div><h3 style="font-size:0.96rem;">Test Case Design</h3><p>Write specific, repeatable test cases and test data covering normal use, edge cases, and failure conditions.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">4</div>
-        <div><h3 style="font-size:0.96rem;">Test Execution</h3><p>Run the test cases manually or through automation, and record what passed and what failed.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">5</div>
-        <div><h3 style="font-size:0.96rem;">Defect Reporting</h3><p>Log failures as clear bug reports with steps to reproduce, expected vs. actual result, and severity.</p></div>
-      </div>
-      <div class="training-card">
-        <div class="ic" style="background:var(--cyan-soft); color:var(--cyan);">6</div>
-        <div><h3 style="font-size:0.96rem;">Retesting &amp; Regression</h3><p>Confirm the fix works, and re-run related tests to make sure nothing else broke because of it.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="types" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Testing Types</div>
-      <h2>Types of Testing</h2>
-      <p>The core categories every QA learner runs into early.</p>
-    </div>
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr);">
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Functional</h3><p>Does the feature do what it's supposed to do?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8"/></svg></div><h3>Regression</h3><p>Did a new change break something that used to work?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Smoke</h3><p>Quick check that the build is stable enough to test further.</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div><h3>Sanity</h3><p>Narrow, focused check after a small fix or change.</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4"/></svg></div><h3>Integration</h3><p>Do separate modules work correctly together?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>UAT</h3><p>Does it meet real user needs, tested by actual stakeholders?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Performance</h3><p>How does it behave under load, stress, or many users?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div><h3>Security</h3><p>Can the system be broken into or misused?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Usability</h3><p>Is it actually easy and clear for a real person to use?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Compatibility</h3><p>Does it work across browsers, devices, and screen sizes?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>API Testing</h3><p>Do requests and responses behave correctly at the API layer?</p></div>
-      <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><h3>Automation</h3><p>Scripting repetitive tests so they run without manual effort.</p></div>
-    </div>
-  </section>
-
-  <section id="manual-auto" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Approach</div>
-      <h2>Manual vs. Automated</h2>
-    </div>
-    <div class="training-grid">
-      <div class="training-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <div>
-          <h3>Manual Testing</h3>
-          <p>Best for exploratory testing and new features. Good at catching usability issues a script would miss. Slower to repeat across every release.</p>
+        <div class="section-tag">02 · Contact</div>
+        <h2>Let's work together.</h2>
+        <p class="sub">Open to junior frontend development roles, React projects, or QA/testing internships — happy to talk about any of it.</p>
+        <div class="contact-links">
+          <a href="https://github.com/Menuka86" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.58v-2.02c-3.2.7-3.9-1.37-3.9-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.71.08-.71 1.18.08 1.8 1.2 1.8 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.4-1.28.73-1.58-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.06 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.77.11 3.06.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17v3.22c0 .33.2.7.8.58A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/menuka-mukhiya-6aa196354" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23h-4V8z"/></svg>
+            LinkedIn
+          </a>
+          <div class="resume-dropdown" id="resumeDropdown">
+            <button class="resume-dropdown-btn" id="resumeDropdownBtn" style="text-decoration:none; font-size:0.9rem; border:1px solid var(--line); padding:10px 16px; border-radius:24px; display:inline-flex; align-items:center; gap:8px; background:var(--card); color:var(--ink); cursor:pointer; font-family:'Inter',sans-serif;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              Resume
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="resume-dropdown-menu">
+              <button id="resumePreviewOption">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
+                Preview
+              </button>
+              <a href="Menuka_Mukhiya_Resume.pdf" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="training-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <div>
-          <h3>Automated Testing</h3>
-          <p>Best for repetitive regression checks. Fast and consistent once written and maintained. Doesn't replace human judgment or exploratory testing.</p>
-        </div>
+      <div class="contact-card">
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg> mmenuka137@gmail.com</div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Kathmandu, Nepal</div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> BSc CSIT · Shreeyantra College</div>
+        <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg> Open to junior roles &amp; internships</div>
       </div>
     </div>
-  </section>
+    <div class="copyright">© 2026 Menuka Mukhiya. Built with HTML, CSS &amp; React.</div>
+  </div>
+</footer>
 
-  <section id="glossary" class="reveal">
-    <div class="section-head">
-      <div class="section-tag">Glossary</div>
-      <h2>Glossary</h2>
+<div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-label="Resume preview">
+  <div class="resume-modal-backdrop" id="resumeModalBackdrop"></div>
+  <div class="resume-modal-box">
+    <div class="resume-modal-head">
+      <span class="resume-modal-title">Menuka Mukhiya — Resume</span>
+      <button class="resume-modal-close" id="closeResumeModal" aria-label="Close" title="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </div>
-    <div class="training-grid" style="grid-template-columns:1fr 1fr;">
-      <div class="method-card"><span class="method-badge get" style="font-family:'IBM Plex Mono',monospace;">Test Case</span><p>A documented set of steps, inputs, and expected results used to verify one specific behavior.</p></div>
-      <div class="method-card"><span class="method-badge post" style="font-family:'IBM Plex Mono',monospace;">Test Plan</span><p>A document outlining scope, approach, resources, and schedule for a testing effort.</p></div>
-      <div class="method-card"><span class="method-badge delete" style="font-family:'IBM Plex Mono',monospace;">Defect / Bug</span><p>An actual flaw in the code that causes it to behave incorrectly.</p></div>
-      <div class="method-card"><span class="method-badge put" style="font-family:'IBM Plex Mono',monospace;">Severity</span><p>How badly a defect affects the system technically — e.g. crashes vs. cosmetic issue.</p></div>
-      <div class="method-card"><span class="method-badge patch" style="font-family:'IBM Plex Mono',monospace;">Priority</span><p>How urgently a defect needs fixing from a business perspective, independent of severity.</p></div>
-      <div class="method-card"><span class="method-badge get" style="font-family:'IBM Plex Mono',monospace;">Regression</span><p>Re-testing previously working features after a change, to confirm nothing broke.</p></div>
-      <div class="method-card"><span class="method-badge post" style="font-family:'IBM Plex Mono',monospace;">STLC</span><p>Software Testing Life Cycle — the structured sequence of testing phases within a project.</p></div>
-      <div class="method-card"><span class="method-badge put" style="font-family:'IBM Plex Mono',monospace;">Edge Case</span><p>An input or condition at the extreme boundary of what's expected — often where bugs hide.</p></div>
-    </div>
-  </section>
-
-  <section class="reveal" style="text-align:center; padding-bottom:70px;">
-    <h2 style="font-size:1.6rem;">Still learning, one test case at a time.</h2>
-    <p style="color:var(--ink-soft); margin-top:10px;">These notes will keep growing as I go deeper into QA.</p>
-    <div style="margin-top:22px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-      <a href="index.html" class="btn-secondary">&larr; Back to Home</a>
-    </div>
-  </section>
+    <iframe class="resume-modal-frame" id="resumeModalFrame" src="" title="Resume preview"></iframe>
+  </div>
 </div>
 <script>
 // mobile menu toggle
@@ -648,6 +524,45 @@
     });
   }, { threshold: 0.15 });
   items.forEach(function(el){ obs.observe(el); });
+})();
+</script>
+<script>
+// resume dropdown + preview modal (Contact page only)
+(function(){
+  var dropdown = document.getElementById('resumeDropdown');
+  var dropdownBtn = document.getElementById('resumeDropdownBtn');
+  var previewOption = document.getElementById('resumePreviewOption');
+  var modal = document.getElementById('resumeModal');
+  var closeBtn = document.getElementById('closeResumeModal');
+  var backdrop = document.getElementById('resumeModalBackdrop');
+  var frame = document.getElementById('resumeModalFrame');
+  var PDF_URL = 'Menuka_Mukhiya_Resume.pdf';
+  if(!dropdown) return;
+
+  dropdownBtn.addEventListener('click', function(ev){
+    ev.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', function(ev){
+    if(!dropdown.contains(ev.target)) dropdown.classList.remove('open');
+  });
+
+  function openModal(){
+    frame.src = PDF_URL;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    dropdown.classList.remove('open');
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  if(previewOption) previewOption.addEventListener('click', openModal);
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  if(backdrop) backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape') closeModal();
+  });
 })();
 </script>
 
