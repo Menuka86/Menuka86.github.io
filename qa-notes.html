@@ -303,10 +303,24 @@
   /* ---------- training ---------- */
   .training-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; }
   @media (max-width:700px){ .training-grid{ grid-template-columns:1fr; } }
+  .training-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:900px){ .training-grid.cols-3{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .training-grid.cols-3{ grid-template-columns:1fr; } }
+  .method-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:640px){ .method-grid.cols-3{ grid-template-columns:1fr; } }
+  .jump-nav{
+    margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; position:sticky;
+    top:72px; z-index:15; background:var(--bg); padding:10px 0;
+  }
+  @media (max-width:640px){
+    .jump-nav{ top:58px; gap:8px; }
+    .jump-nav a.btn-secondary{ padding:7px 13px; font-size:0.8rem; }
+  }
   .training-card{
     background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px;
     display:flex; gap:16px; align-items:flex-start;
   }
+  @media (max-width:480px){ .training-card{ padding:18px 16px; gap:12px; } }
   .training-card .ic{
     width:40px; height:40px; border-radius:10px; background:var(--violet-soft); color:var(--violet);
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
@@ -412,6 +426,9 @@
       <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
       </button>
+      <button class="icon-btn" id="musicToggle" aria-label="Toggle background music" title="Play music">
+        <svg id="musicIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+      </button>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" title="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -425,7 +442,7 @@
     <h1 style="font-size:clamp(2rem,4.5vw,2.8rem); line-height:1.15;">What QA actually means <span class="gradient" style="background:linear-gradient(100deg,var(--violet),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic;">in software.</span></h1>
     <p class="tagline" style="margin-top:16px;">My own working notes on Quality Assurance — definitions, process, testing types, and terminology — written while I learn QA alongside frontend development.</p>
 
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr); margin-top:32px;">
+    <div class="qa-grid" style="margin-top:32px;">
       <div class="tool-card" style="text-align:left; padding:20px;">
         <div style="font-family:'Sora',sans-serif; font-weight:800; font-size:1.6rem; color:var(--violet);">6</div>
         <div style="color:var(--ink-soft); font-size:0.84rem; margin-top:4px;">Process Steps (STLC)</div>
@@ -444,7 +461,7 @@
       </div>
     </div>
 
-    <div style="margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; position:sticky; top:80px; z-index:15; background:var(--bg); padding:10px 0;">
+    <div class="jump-nav">
       <a href="#basics" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Basics</a>
       <a href="#process" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Process</a>
       <a href="#types" class="btn-secondary" style="padding:8px 16px; font-size:0.84rem;">Testing Types</a>
@@ -468,7 +485,7 @@
       </div>
     </div>
 
-    <div class="method-grid" style="grid-template-columns:repeat(3,1fr); margin-top:24px;">
+    <div class="method-grid cols-3" style="margin-top:24px;">
       <div class="method-card">
         <span class="method-badge get">QA</span>
         <p><strong style="color:var(--ink);">The process.</strong> Focused on preventing defects by improving the process itself — planning, standards, and reviews before code is even written.</p>
@@ -490,7 +507,7 @@
       <h2>The QA Process (STLC)</h2>
       <p>A simplified version of the Software Testing Life Cycle.</p>
     </div>
-    <div class="training-grid" style="grid-template-columns:repeat(3,1fr);">
+    <div class="training-grid cols-3">
       <div class="training-card">
         <div class="ic" style="background:var(--violet-soft); color:var(--violet);">1</div>
         <div><h3 style="font-size:0.96rem;">Requirement Analysis</h3><p>Review requirements for gaps, ambiguity, or things that can't actually be tested as written.</p></div>
@@ -524,7 +541,7 @@
       <h2>Types of Testing</h2>
       <p>The core categories every QA learner runs into early.</p>
     </div>
-    <div class="qa-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="qa-grid">
       <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Functional</h3><p>Does the feature do what it's supposed to do?</p></div>
       <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8"/></svg></div><h3>Regression</h3><p>Did a new change break something that used to work?</p></div>
       <div class="qa-card" style="cursor:default;"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><h3>Smoke</h3><p>Quick check that the build is stable enough to test further.</p></div>
@@ -568,7 +585,7 @@
       <div class="section-tag">Glossary</div>
       <h2>Glossary</h2>
     </div>
-    <div class="training-grid" style="grid-template-columns:1fr 1fr;">
+    <div class="training-grid">
       <div class="method-card"><span class="method-badge get" style="font-family:'IBM Plex Mono',monospace;">Test Case</span><p>A documented set of steps, inputs, and expected results used to verify one specific behavior.</p></div>
       <div class="method-card"><span class="method-badge post" style="font-family:'IBM Plex Mono',monospace;">Test Plan</span><p>A document outlining scope, approach, resources, and schedule for a testing effort.</p></div>
       <div class="method-card"><span class="method-badge delete" style="font-family:'IBM Plex Mono',monospace;">Defect / Bug</span><p>An actual flaw in the code that causes it to behave incorrectly.</p></div>
@@ -588,6 +605,7 @@
     </div>
   </section>
 </div>
+<audio id="bgMusic" src="assets/bg-music.mp3" loop preload="none"></audio>
 <script>
 // mobile menu toggle
 (function(){
@@ -623,6 +641,84 @@
     var next = current === 'dark' ? 'light' : 'dark';
     apply(next);
     try{ localStorage.setItem('menuka-portfolio-theme', next); } catch(err){}
+  });
+})();
+
+// music toggle + slow auto-scroll while playing
+(function(){
+  var btn = document.getElementById('musicToggle');
+  var icon = document.getElementById('musicIcon');
+  var audio = document.getElementById('bgMusic');
+  if(!btn || !icon || !audio) return;
+
+  var ON_PATH  = 'M11 5 6 9H2v6h4l5 4V5Z M15.5 8.5a5 5 0 0 1 0 7 M18.5 5.5a9 9 0 0 1 0 13';
+  var OFF_PATH = 'M11 5 6 9H2v6h4l5 4V5Z M23 9l-6 6 M17 9l6 6';
+
+  var playing = false;
+  var rafId = null;
+  var paused = false;      // true briefly after the user manually scrolls/taps
+  var resumeTimer = null;
+  var SPEED = 60;          // px per second — downward drift
+
+  function setIcon(isOn){ icon.innerHTML = '<path d="' + (isOn ? ON_PATH : OFF_PATH) + '"/>'; }
+  setIcon(false);
+
+  function atPageBottom(){
+    return (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+  }
+
+  function stopScroll(){
+    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function tick(ts){
+    if(!tick.last) tick.last = ts;
+    var dt = (ts - tick.last) / 1000;
+    tick.last = ts;
+    if(!paused && !atPageBottom()){
+      window.scrollBy({ top: SPEED * dt, left: 0, behavior: 'auto' });
+    }
+    if(playing && !atPageBottom()){
+      rafId = requestAnimationFrame(tick);
+    } else {
+      rafId = null;
+      tick.last = null;
+    }
+  }
+
+  function startScroll(){
+    stopScroll();
+    tick.last = null;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function markInteraction(){
+    paused = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function(){ paused = false; }, 3500);
+  }
+  ['wheel','touchstart','keydown','pointerdown'].forEach(function(evt){
+    window.addEventListener(evt, function(e){
+      if(e.target === btn || btn.contains(e.target)) return;
+      markInteraction();
+    }, { passive:true });
+  });
+
+  btn.addEventListener('click', function(){
+    if(!playing){
+      audio.play().then(function(){
+        playing = true;
+        setIcon(true);
+        btn.title = 'Pause music';
+        startScroll();
+      }).catch(function(){ /* playback blocked, e.g. missing file */ });
+    } else {
+      audio.pause();
+      playing = false;
+      setIcon(false);
+      btn.title = 'Play music';
+      stopScroll();
+    }
   });
 })();
 
